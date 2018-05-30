@@ -1,0 +1,23 @@
+{
+  "name": "generator-pln",
+  "version": "1.0.0",
+  "description": "generador pln",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "author": "rmay",
+  "license": "ISC",
+  "files": [
+    "app",
+    "router"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^2.0.1",
+    "chalk": "^2.1.0",
+    "yosay": "^2.0.1"
+  }
+}
