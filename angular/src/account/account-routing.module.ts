@@ -3,6 +3,8 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AccountComponent } from './account.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
     imports: [
@@ -12,7 +14,10 @@ import { AccountComponent } from './account.component';
                 component: AccountComponent,
                 children: [
                     { path: 'login', component: LoginComponent },
-                    { path: 'register', component: RegisterComponent }
+                    { path: 'register', component: RegisterComponent },
+                    { path: 'forgotpassword', component: ForgotPasswordComponent },
+                    { path: 'resetpassword', component: ResetPasswordComponent},
+                    { path: '**', pathMatch: 'full', redirectTo: 'login' }
                 ]
             }
         ])
@@ -21,4 +26,4 @@ import { AccountComponent } from './account.component';
         RouterModule
     ]
 })
-export class AccountRoutingModule { }
+export class AccountRoutingModule {}

@@ -11,5 +11,7 @@ namespace Plenumsoft.Users
         Task<ListResultDto<RoleDto>> GetRoles();
 
         Task ChangeLanguage(ChangeUserLanguageDto input);
+
+        Task ChangePassword(ChangePasswordDto input);
     }
 }
