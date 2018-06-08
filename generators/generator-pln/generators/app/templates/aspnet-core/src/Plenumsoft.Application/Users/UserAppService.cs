@@ -16,6 +16,7 @@ using <%= projectName %>.Authorization.Roles;
 using <%= projectName %>.Authorization.Users;
 using <%= projectName %>.Roles.Dto;
 using <%= projectName %>.Users.Dto;
+using Abp.Net.Mail.Smtp;
 
 namespace <%= projectName %>.Users
 {
@@ -26,19 +27,24 @@ namespace <%= projectName %>.Users
         private readonly RoleManager _roleManager;
         private readonly IRepository<Role> _roleRepository;
         private readonly IPasswordHasher<User> _passwordHasher;
+        private readonly ISmtpEmailSender _emailSender;
 
         public UserAppService(
             IRepository<User, long> repository,
             UserManager userManager,
             RoleManager roleManager,
             IRepository<Role> roleRepository,
-            IPasswordHasher<User> passwordHasher)
+            IPasswordHasher<User> passwordHasher,
+            ISmtpEmailSender emailSender)
             : base(repository)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _roleRepository = roleRepository;
             _passwordHasher = passwordHasher;
+            _emailSender = emailSender;
+
+            LocalizationSourceName = <%= projectName %>Consts.LocalizationSourceName;
         }
 
         public override async Task<UserDto> Create(CreateUserDto input)
@@ -148,6 +154,21 @@ namespace <%= projectName %>.Users
         protected virtual void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
+        }
+
+        public async Task ChangePassword(ChangePasswordDto input)
+        {
+
+            if (input.NewPassword != input.ConfirmPassword)
+                throw new Abp.UI.UserFriendlyException(L("PasswordAndCormirmationMismatch"));
+
+            var user = await _userManager.GetUserByIdAsync(this.AbpSession.GetUserId());
+
+            await this._userManager.InitializeOptionsAsync(null);
+
+            var result = await _userManager.ChangePasswordAsync(user, input.CurrentPassword, input.NewPassword);
+
+            CheckErrors(result);
         }
     }
 }

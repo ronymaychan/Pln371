@@ -91,5 +91,20 @@
     <text name="StartTyping">Start Typing</text>
     <text name="Skins">Skins</text>
     <text name="Settings">Settings</text>
+    <text name="PasswordAndCormirmationMismatch">The new password and confirmation do not match</text>
+    <text name="EmailIsNotValidMessage">The email address is not valid</text>
+    <text name="UserIsNotValidMessage">The user is not valid</text>
+    <text name="ChangePassword">Change password</text>
+    <text name="CurrentPassword">Current password</text>
+    <text name="NewPassword">New password</text>
+    <text name="Forgotpassword">Forgot password?</text>
+    <text name="ForgotpasswordDescription">A password reset link will be sent to your email to reset your password. If you don't get an email within a few minutes, please re-try.</text>
+    <text name="MailSent">Mail sent</text>
+    <text name="ForgotpasswordSuccess">A password reset link sent to your email address. Please check your emails.</text>
+    <text name="ResetPassword">Reset password</text>
+    <text name="ResetPasswordDescription">Please enter your new password.</text>
+    <text name="ResetPasswordSuccess">Your password has been changed, please login.</text>
+    <text name="ResetPasswordFail">Please be sure you entered this page by clicking the link sent to your email. If this not solves the problem, you can re-try to request a new password reset link.</text>
+    <text name="AppName"><%= projectName %></text>
   </texts>
 </localizationDictionary>
