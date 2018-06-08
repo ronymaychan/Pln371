@@ -87,16 +87,16 @@ namespace Plenumsoft.Authorization.Accounts
 
             var resetCode = await _userManager.GeneratePasswordResetTokenAsync(user);
 
-            var callbackUrl = string.Format("{0}account/resetpassword?userId={1}&resetCode={2}", clientAddress, user.Id, resetCode);
+            var callbackUrl = string.Format("{0}account/resetpassword?userId={1}&resetCode={2}", clientAddress, user.Id, System.Web.HttpUtility.UrlEncode(resetCode));
 
             var filePath = WebContentDirectoryFinder.CalculateContentRootFolder() + "\\Content\\Templates\\forgot-password.html";
             var template = Helpers.FluentTemplate.CultureTemplateFromFile(
                     filePath,
                     new
                     {
-                        UrlReset = callbackUrl,
+                        UrlReset =  callbackUrl,
                         Name = user.FullName,
-                        UserName = user.UserName
+                        user.UserName
                     },
                     CultureInfo.CurrentCulture);
 

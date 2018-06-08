@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.2] - 2018-06-08
+### Added
+- Se agregó el llamado a la función UrlEncode para codificar el url para restablecer el pwd
+
 ## [1.2.1] - 2018-06-08
 ### Added
 - Se agregó el archivo CHANGELOG.md
