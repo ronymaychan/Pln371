@@ -9,5 +9,9 @@ namespace <%= projectName %>.Authorization.Accounts
         Task<IsTenantAvailableOutput> IsTenantAvailable(IsTenantAvailableInput input);
 
         Task<RegisterOutput> Register(RegisterInput input);
+
+        Task ForgotPassword(ForgotPasswordDto input);
+
+        Task ResetPassword(ResetPasswordDto input);
     }
 }

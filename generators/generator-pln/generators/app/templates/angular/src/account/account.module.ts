@@ -22,6 +22,9 @@ import { RegisterComponent } from './register/register.component';
 import { AccountLanguagesComponent } from './layout/account-languages.component';
 
 import { LoginService } from './login/login.service';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AccountRouteGuard } from './account-route-guard';
 
 @NgModule({
     imports: [
@@ -41,10 +44,13 @@ import { LoginService } from './login/login.service';
         TenantChangeModalComponent,
         LoginComponent,
         RegisterComponent,
-        AccountLanguagesComponent
+        AccountLanguagesComponent,
+        ForgotPasswordComponent,
+        ResetPasswordComponent
     ],
     providers: [
-        LoginService
+        LoginService,
+        AccountRouteGuard
     ]
 })
 export class AccountModule {
