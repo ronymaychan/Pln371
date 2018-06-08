@@ -50,7 +50,7 @@ namespace Plenumsoft.Helpers
         private static string GetCultureFileName(string fileName, CultureInfo culture)
         {
             var extension = Path.GetExtension(fileName);
-            var cultureExtension = string.Format("{0}{1}", culture.TwoLetterISOLanguageName, extension);
+            var cultureExtension = string.Format("{0}{1}", culture.Name, extension);
 
             var cultureFile = Path.ChangeExtension(fileName, cultureExtension);
             if (File.Exists(cultureFile))

@@ -77,7 +77,7 @@ namespace Plenumsoft.Authorization.Accounts
         [AbpAllowAnonymous]
         public async Task ForgotPassword(ForgotPasswordDto input)
         {
-            
+
             var user = await _userManager.FindByEmailAsync(input.Email);
 
             if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
@@ -86,11 +86,19 @@ namespace Plenumsoft.Authorization.Accounts
             var clientAddress = SettingManager.GetSettingValue(Configuration.AppSettingNames.ClientRootAddress);
 
             var resetCode = await _userManager.GeneratePasswordResetTokenAsync(user);
-            
+
             var callbackUrl = string.Format("{0}account/resetpassword?userId={1}&resetCode={2}", clientAddress, user.Id, resetCode);
 
             var filePath = WebContentDirectoryFinder.CalculateContentRootFolder() + "\\Content\\Templates\\forgot-password.html";
-            var template = Helpers.FluentTemplate.CultureTemplateFromFile(filePath, new { UrlReset = callbackUrl }, CultureInfo.CurrentCulture);
+            var template = Helpers.FluentTemplate.CultureTemplateFromFile(
+                    filePath,
+                    new
+                    {
+                        UrlReset = callbackUrl,
+                        Name = user.FullName,
+                        UserName = user.UserName
+                    },
+                    CultureInfo.CurrentCulture);
 
             _smtpEmailSender.Send(
                 to: user.EmailAddress,
