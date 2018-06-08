@@ -4,7 +4,23 @@
 
 <section>
     <aside id="leftsidebar" class="sidebar">
-        <sidebar-user-area></sidebar-user-area>
+        <!--<sidebar-user-area></sidebar-user-area>-->
+        <div class="user-info">
+            <div class="image">
+                <img src="/assets/images/user.png" width="48" height="48" alt="User" />
+            </div>
+            <div class="info-container">
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{shownLoginName}}</div>
+                <div class="email">{{appSession.user.emailAddress}}</div>
+                <div class="btn-group user-helper-dropdown">
+                    <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a (click)="changePassword()"><i class="material-icons">edit</i>{{l('ChangePassword')}}</a></li>
+                        <li><a (click)="logout()"><i class="material-icons">input</i>{{l('Logout')}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <sidebar-nav></sidebar-nav>
         <sidebar-footer></sidebar-footer>
     </aside>
@@ -15,5 +31,7 @@
 <section class="content">
     <div class="container-fluid">
         <router-outlet></router-outlet>
+        <app-change-password #changePasswordModel></app-change-password>
     </div>
 </section>
+

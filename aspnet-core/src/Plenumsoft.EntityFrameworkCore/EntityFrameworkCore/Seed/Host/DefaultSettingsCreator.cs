@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Abp.Configuration;
 using Abp.Localization;
 using Abp.Net.Mail;
+using Abp.Zero.Configuration;
 
 namespace Plenumsoft.EntityFrameworkCore.Seed.Host
 {
@@ -23,6 +24,15 @@ namespace Plenumsoft.EntityFrameworkCore.Seed.Host
 
             // Languages
             AddSettingIfNotExists(LocalizationSettingNames.DefaultLanguage, "en");
+
+            // PasswordComplexity
+            /*AddSettingIfNotExists(AbpZeroSettingNames.UserManagement.PasswordComplexity.RequireDigit, "false");
+            AddSettingIfNotExists(AbpZeroSettingNames.UserManagement.PasswordComplexity.RequireLowercase, "false");
+            AddSettingIfNotExists(AbpZeroSettingNames.UserManagement.PasswordComplexity.RequireNonAlphanumeric, "false");
+            AddSettingIfNotExists(AbpZeroSettingNames.UserManagement.PasswordComplexity.RequireUppercase, "false");
+            AddSettingIfNotExists(AbpZeroSettingNames.UserManagement.PasswordComplexity.RequiredLength, "6");*/
+
+            AddSettingIfNotExists(Configuration.AppSettingNames.ClientRootAddress, "http://localhost:4200/");
         }
 
         private void AddSettingIfNotExists(string name, string value, int? tenantId = null)
