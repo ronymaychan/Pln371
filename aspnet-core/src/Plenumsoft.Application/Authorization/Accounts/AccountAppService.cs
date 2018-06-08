@@ -102,7 +102,7 @@ namespace Plenumsoft.Authorization.Accounts
 
             _smtpEmailSender.Send(
                 to: user.EmailAddress,
-                subject: "Plenumsoft: password reset!",
+                subject: string.Format("{0}{1}", L("AppName"), L("ResetPassword")),
                 body: template,
                 isBodyHtml: true);
         }
