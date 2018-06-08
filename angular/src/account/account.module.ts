@@ -24,6 +24,7 @@ import { AccountLanguagesComponent } from './layout/account-languages.component'
 import { LoginService } from './login/login.service';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AccountRouteGuard } from './account-route-guard';
 
 @NgModule({
     imports: [
@@ -48,7 +49,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
         ResetPasswordComponent
     ],
     providers: [
-        LoginService
+        LoginService,
+        AccountRouteGuard
     ]
 })
 export class AccountModule {

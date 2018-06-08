@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.Authorization;
@@ -76,6 +77,7 @@ namespace Plenumsoft.Authorization.Accounts
         [AbpAllowAnonymous]
         public async Task ForgotPassword(ForgotPasswordDto input)
         {
+            
             var user = await _userManager.FindByEmailAsync(input.Email);
 
             if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
@@ -83,16 +85,17 @@ namespace Plenumsoft.Authorization.Accounts
 
             var clientAddress = SettingManager.GetSettingValue(Configuration.AppSettingNames.ClientRootAddress);
 
-
             var resetCode = await _userManager.GeneratePasswordResetTokenAsync(user);
-            resetCode = System.Web.HttpUtility.UrlEncode(resetCode);
-
+            
             var callbackUrl = string.Format("{0}account/resetpassword?userId={1}&resetCode={2}", clientAddress, user.Id, resetCode);
+
+            var filePath = WebContentDirectoryFinder.CalculateContentRootFolder() + "\\Content\\Templates\\forgot-password.html";
+            var template = Helpers.FluentTemplate.CultureTemplateFromFile(filePath, new { UrlReset = callbackUrl }, CultureInfo.CurrentCulture);
 
             _smtpEmailSender.Send(
                 to: user.EmailAddress,
                 subject: "Plenumsoft: password reset!",
-                body: string.Format("This email is sent you to reset and re-create your password. <br/> <br/> Please click the link below to reset your password: <br/> <br/> {0}", callbackUrl),
+                body: template,
                 isBodyHtml: true);
         }
 

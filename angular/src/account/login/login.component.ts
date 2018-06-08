@@ -49,8 +49,4 @@ export class LoginComponent extends AppComponentBase {
             () => this.submitting = false
         );
     }
-
-    forgotPassword() {
-        this._router.navigate(['account/forgotpassword']);
-    }
 }
