@@ -72,12 +72,13 @@ export class LoginService {
             abp.appPath
         );
 
-        var initialUrl = UrlHelper.initialUrl;
+        /*var initialUrl = UrlHelper.initialUrl;
         if (initialUrl.indexOf('/login') > 0) {
             initialUrl = AppConsts.appBaseUrl;
         }
 
-        location.href = initialUrl;
+        location.href = initialUrl;*/
+        location.href = AppConsts.appBaseUrl;
     }
 
     private clear(): void {
