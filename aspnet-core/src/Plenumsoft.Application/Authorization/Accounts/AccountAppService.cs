@@ -31,13 +31,13 @@ namespace Plenumsoft.Authorization.Accounts
             LocalizationSourceName = PlenumsoftConsts.LocalizationSourceName;
         }
 
-        [AbpAllowAnonymous]
+        /*[AbpAllowAnonymous]
         public string Demo()
         {
             var inforDir = WebContentDirectoryFinder.CalculateContentRootFolder();
             
             return L("HomePage");
-        }
+        }*/
 
         public async Task<IsTenantAvailableOutput> IsTenantAvailable(IsTenantAvailableInput input)
         {

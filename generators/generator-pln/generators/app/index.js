@@ -33,6 +33,7 @@ module.exports = class extends Generator{
 
 
         files.push({source: '.gitignore'});
+        files.push({source: 'CHANGELOG.md'});
         files.push({source: 'LICENSE'});
         files.push({source: 'README.md'});
         files.push({source: 'angular/.angular-cli.json'});
@@ -42,6 +43,7 @@ module.exports = class extends Generator{
         files.push({source: 'angular/app.config'});
         files.push({source: 'angular/Dockerfile'});
         files.push({source: 'angular/karma.conf.js'});
+        files.push({source: 'angular/package-lock.json'});
         files.push({source: 'angular/package.json'});
         files.push({source: 'angular/Plenumsoft.AngularUI.csproj'});
         files.push({source: 'angular/Plenumsoft.AngularUI.sln'});
@@ -69,11 +71,14 @@ module.exports = class extends Generator{
         files.push({source: 'angular/src/test.ts'});
         files.push({source: 'angular/src/tsconfig.json'});
         files.push({source: 'angular/src/typings.d.ts'});
+        files.push({source: 'angular/src/account/account-route-guard.ts'});
         files.push({source: 'angular/src/account/account-routing.module.ts'});
         files.push({source: 'angular/src/account/account.component.html'});
         files.push({source: 'angular/src/account/account.component.less'});
         files.push({source: 'angular/src/account/account.component.ts'});
         files.push({source: 'angular/src/account/account.module.ts'});
+        files.push({source: 'angular/src/account/forgot-password/forgot-password.component.html'});
+        files.push({source: 'angular/src/account/forgot-password/forgot-password.component.ts'});
         files.push({source: 'angular/src/account/layout/account-languages.component.html'});
         files.push({source: 'angular/src/account/layout/account-languages.component.less'});
         files.push({source: 'angular/src/account/layout/account-languages.component.ts'});
@@ -83,6 +88,8 @@ module.exports = class extends Generator{
         files.push({source: 'angular/src/account/login/login.service.ts'});
         files.push({source: 'angular/src/account/register/register.component.html'});
         files.push({source: 'angular/src/account/register/register.component.ts'});
+        files.push({source: 'angular/src/account/reset-password/reset-password.component.html'});
+        files.push({source: 'angular/src/account/reset-password/reset-password.component.ts'});
         files.push({source: 'angular/src/account/tenant/tenant-change-modal.component.html'});
         files.push({source: 'angular/src/account/tenant/tenant-change-modal.component.ts'});
         files.push({source: 'angular/src/account/tenant/tenant-change.component.html'});
@@ -94,6 +101,8 @@ module.exports = class extends Generator{
         files.push({source: 'angular/src/app/app.module.ts'});
         files.push({source: 'angular/src/app/about/about.component.html'});
         files.push({source: 'angular/src/app/about/about.component.ts'});
+        files.push({source: 'angular/src/app/account/change-password/change-password.component.html'});
+        files.push({source: 'angular/src/app/account/change-password/change-password.component.ts'});
         files.push({source: 'angular/src/app/home/home.component.html'});
         files.push({source: 'angular/src/app/home/home.component.ts'});
         files.push({source: 'angular/src/app/layout/right-sidebar.component.html'});
@@ -229,10 +238,12 @@ module.exports = class extends Generator{
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/AbpLoginResultTypeHelper.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/AccountAppService.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/IAccountAppService.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/Dto/ForgotPasswordDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/Dto/IsTenantAvailableInput.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/Dto/IsTenantAvailableOutput.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/Dto/RegisterInput.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/Dto/RegisterOutput.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/Dto/ResetPasswordDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/Dto/TenantAvailabilityState.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Configuration/ConfigurationAppService.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Configuration/IConfigurationAppService.cs'});
@@ -260,6 +271,7 @@ module.exports = class extends Generator{
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/SignalR/SignalRFeature.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Users/IUserAppService.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Users/UserAppService.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Users/Dto/ChangePasswordDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Users/Dto/ChangeUserLanguageDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Users/Dto/CreateUserDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Users/Dto/UserDto.cs'});
@@ -287,6 +299,7 @@ module.exports = class extends Generator{
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Configuration/AppSettingProvider.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Editions/EditionManager.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Features/FeatureValueStore.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Core/Helpers/FluentTemplate.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Identity/IdentityRegistrar.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Identity/SecurityStampValidator.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Identity/SignInManager.cs'});
@@ -378,6 +391,17 @@ module.exports = class extends Generator{
         files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/log4net.config'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Plenumsoft.Web.Host.csproj'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/web.config'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.en.html'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.es.html'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.fr.html'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.html'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.it.html'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.ja.html'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.lt.html'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.nl.html'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.pt-BR.html'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.tr.html'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Content/Templates/forgot-password.zh-CN.html'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Controllers/AntiForgeryController.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Controllers/HomeController.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Web.Host/Properties/launchSettings.json'});
@@ -397,6 +421,10 @@ module.exports = class extends Generator{
         files.push({source: 'aspnet-core/test/Plenumsoft.Tests/Properties/AssemblyInfo.cs'});
         files.push({source: 'aspnet-core/test/Plenumsoft.Tests/Sessions/SessionAppService_Tests.cs'});
         files.push({source: 'aspnet-core/test/Plenumsoft.Tests/Users/UserAppService_Tests.cs'});
+        files.push({source: '_screenshots/ui-home.png'});
+        files.push({source: '_screenshots/ui-login.png'});
+        files.push({source: '_screenshots/ui-user-create-modal.png'});
+
 
 
 
