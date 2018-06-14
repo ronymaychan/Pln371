@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Abp.Authorization;
-using <%= projectName %>.Authorization.Roles;
+using Plenumsoft.Authorization.Roles;
 
-namespace <%= projectName %>.Authorization.Users
+namespace Plenumsoft.Authorization.Users
 {
     public class UserClaimsPrincipalFactory : AbpUserClaimsPrincipalFactory<User, Role>
     {

@@ -1,10 +1,10 @@
-﻿namespace <%= projectName %>.EntityFrameworkCore.Seed.Host
+﻿namespace Plenumsoft.EntityFrameworkCore.Seed.Host
 {
     public class InitialHostDbBuilder
     {
-        private readonly <%= projectName %>DbContext _context;
+        private readonly PlenumsoftDbContext _context;
 
-        public InitialHostDbBuilder(<%= projectName %>DbContext context)
+        public InitialHostDbBuilder(PlenumsoftDbContext context)
         {
             _context = context;
         }
@@ -15,6 +15,8 @@
             new DefaultLanguagesCreator(_context).Create();
             new HostRoleAndUserCreator(_context).Create();
             new DefaultSettingsCreator(_context).Create();
+
+            new DefaultDataInitialization(_context).Create();
 
             _context.SaveChanges();
         }

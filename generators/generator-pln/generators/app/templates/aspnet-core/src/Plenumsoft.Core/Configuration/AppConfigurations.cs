@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Abp.Extensions;
 using Abp.Reflection.Extensions;
 
-namespace <%= projectName %>.Configuration
+namespace Plenumsoft.Configuration
 {
     public static class AppConfigurations
     {

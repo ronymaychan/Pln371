@@ -1,7 +1,7 @@
 ﻿using System;
 using Abp.Dependency;
 
-namespace <%= projectName %>.Timing
+namespace Plenumsoft.Timing
 {
     public class AppTimes : ISingletonDependency
     {

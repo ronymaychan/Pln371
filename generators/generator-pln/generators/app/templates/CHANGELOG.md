@@ -6,6 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2018-06-14
+### Added
+- Se agregó los catálogos de ubicación (País, Estado y Ciudad)
+- Se actualizó el generador YEOMAN para el proyecto
+
+## [1.2.3] - 2018-06-09
+### Added
+- Se actualizó el generador YEOMAN para el proyecto
+
 ## [1.2.2] - 2018-06-08
 ### Added
 - Se agregó el llamado a la función UrlEncode para codificar el url para restablecer el pwd

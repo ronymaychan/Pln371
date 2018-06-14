@@ -7,11 +7,11 @@ using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Abp.Zero.Configuration;
-using <%= projectName %>.Authorization.Roles;
-using <%= projectName %>.Authorization.Users;
-using <%= projectName %>.MultiTenancy;
+using Plenumsoft.Authorization.Roles;
+using Plenumsoft.Authorization.Users;
+using Plenumsoft.MultiTenancy;
 
-namespace <%= projectName %>.Authorization
+namespace Plenumsoft.Authorization
 {
     public class LogInManager : AbpLogInManager<Tenant, Role, User>
     {

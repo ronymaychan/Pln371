@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class <%= projectName %>TemplatePage {
+export class PlenumsoftTemplatePage {
   navigateTo() {
     return browser.get('/');
   }

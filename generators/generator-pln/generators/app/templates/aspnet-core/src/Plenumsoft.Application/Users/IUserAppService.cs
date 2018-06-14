@@ -1,10 +1,10 @@
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
-using <%= projectName %>.Roles.Dto;
-using <%= projectName %>.Users.Dto;
+using Plenumsoft.Roles.Dto;
+using Plenumsoft.Users.Dto;
 
-namespace <%= projectName %>.Users
+namespace Plenumsoft.Users
 {
     public interface IUserAppService : IAsyncCrudAppService<UserDto, long, PagedResultRequestDto, CreateUserDto, UserDto>
     {

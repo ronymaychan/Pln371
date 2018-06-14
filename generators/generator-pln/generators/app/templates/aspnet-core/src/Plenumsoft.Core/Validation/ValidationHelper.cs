@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 using Abp.Extensions;
 
-namespace <%= projectName %>.Validation
+namespace Plenumsoft.Validation
 {
     public static class ValidationHelper
     {

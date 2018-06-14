@@ -1,8 +1,8 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using <%= projectName %>.MultiTenancy;
+using Plenumsoft.MultiTenancy;
 
-namespace <%= projectName %>.Sessions.Dto
+namespace Plenumsoft.Sessions.Dto
 {
     [AutoMapFrom(typeof(Tenant))]
     public class TenantLoginInfoDto : EntityDto

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace <%= projectName %>.Migrations
+namespace Plenumsoft.Migrations
 {
     public partial class Added_Description_And_IsActive_To_Role : Migration
     {

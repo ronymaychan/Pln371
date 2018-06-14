@@ -5,13 +5,13 @@ using Abp.Localization;
 using Abp.Net.Mail;
 using Abp.Zero.Configuration;
 
-namespace <%= projectName %>.EntityFrameworkCore.Seed.Host
+namespace Plenumsoft.EntityFrameworkCore.Seed.Host
 {
     public class DefaultSettingsCreator
     {
-        private readonly <%= projectName %>DbContext _context;
+        private readonly PlenumsoftDbContext _context;
 
-        public DefaultSettingsCreator(<%= projectName %>DbContext context)
+        public DefaultSettingsCreator(PlenumsoftDbContext context)
         {
             _context = context;
         }
@@ -20,7 +20,7 @@ namespace <%= projectName %>.EntityFrameworkCore.Seed.Host
         {
             // Emailing
             AddSettingIfNotExists(EmailSettingNames.DefaultFromAddress, "admin@mydomain.com");
-            AddSettingIfNotExists(EmailSettingNames.DefaultFromDisplayName, "<%= projectName %> mailer");
+            AddSettingIfNotExists(EmailSettingNames.DefaultFromDisplayName, "Plenumsoft mailer");
 
             // Languages
             AddSettingIfNotExists(LocalizationSettingNames.DefaultLanguage, "en");

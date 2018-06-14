@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
 using Abp.Authorization.Roles;
 using Abp.AutoMapper;
-using <%= projectName %>.Authorization.Roles;
+using Plenumsoft.Authorization.Roles;
 
-namespace <%= projectName %>.Roles.Dto
+namespace Plenumsoft.Roles.Dto
 {
     [AutoMap(typeof(Role))]
     public class RoleDto : EntityDto<int>

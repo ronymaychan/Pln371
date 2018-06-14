@@ -8,11 +8,11 @@ using Abp.Domain.Uow;
 using Abp.Extensions;
 using Abp.MultiTenancy;
 using Abp.Runtime.Security;
-using <%= projectName %>.EntityFrameworkCore;
-using <%= projectName %>.EntityFrameworkCore.Seed;
-using <%= projectName %>.MultiTenancy;
+using Plenumsoft.EntityFrameworkCore;
+using Plenumsoft.EntityFrameworkCore.Seed;
+using Plenumsoft.MultiTenancy;
 
-namespace <%= projectName %>.Migrator
+namespace Plenumsoft.Migrator
 {
     public class MultiTenantMigrateExecuter : ITransientDependency
     {

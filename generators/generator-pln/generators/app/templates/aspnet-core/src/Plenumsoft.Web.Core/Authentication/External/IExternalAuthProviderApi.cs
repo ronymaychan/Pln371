@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace <%= projectName %>.Authentication.External
+namespace Plenumsoft.Authentication.External
 {
     public interface IExternalAuthProviderApi
     {

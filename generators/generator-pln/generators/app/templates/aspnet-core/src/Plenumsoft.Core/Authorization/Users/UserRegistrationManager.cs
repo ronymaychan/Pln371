@@ -9,10 +9,10 @@ using Abp.Domain.Services;
 using Abp.IdentityFramework;
 using Abp.Runtime.Session;
 using Abp.UI;
-using <%= projectName %>.Authorization.Roles;
-using <%= projectName %>.MultiTenancy;
+using Plenumsoft.Authorization.Roles;
+using Plenumsoft.MultiTenancy;
 
-namespace <%= projectName %>.Authorization.Users
+namespace Plenumsoft.Authorization.Users
 {
     public class UserRegistrationManager : DomainService
     {

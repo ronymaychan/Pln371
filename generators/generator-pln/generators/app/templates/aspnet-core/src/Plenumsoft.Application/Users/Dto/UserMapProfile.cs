@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using <%= projectName %>.Authorization.Users;
+using Plenumsoft.Authorization.Users;
 
-namespace <%= projectName %>.Users.Dto
+namespace Plenumsoft.Users.Dto
 {
     public class UserMapProfile : Profile
     {

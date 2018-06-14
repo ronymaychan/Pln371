@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace <%= projectName %>.Migrations
+namespace Plenumsoft.Migrations
 {
     public partial class Initial_Migrations : Migration
     {

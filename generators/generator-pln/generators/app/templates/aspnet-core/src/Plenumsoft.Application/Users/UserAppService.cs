@@ -11,14 +11,14 @@ using Abp.Domain.Repositories;
 using Abp.IdentityFramework;
 using Abp.Localization;
 using Abp.Runtime.Session;
-using <%= projectName %>.Authorization;
-using <%= projectName %>.Authorization.Roles;
-using <%= projectName %>.Authorization.Users;
-using <%= projectName %>.Roles.Dto;
-using <%= projectName %>.Users.Dto;
+using Plenumsoft.Authorization;
+using Plenumsoft.Authorization.Roles;
+using Plenumsoft.Authorization.Users;
+using Plenumsoft.Roles.Dto;
+using Plenumsoft.Users.Dto;
 using Abp.Net.Mail.Smtp;
 
-namespace <%= projectName %>.Users
+namespace Plenumsoft.Users
 {
     [AbpAuthorize(PermissionNames.Pages_Users)]
     public class UserAppService : AsyncCrudAppService<User, UserDto, long, PagedResultRequestDto, CreateUserDto, UserDto>, IUserAppService
@@ -44,7 +44,7 @@ namespace <%= projectName %>.Users
             _passwordHasher = passwordHasher;
             _emailSender = emailSender;
 
-            LocalizationSourceName = <%= projectName %>Consts.LocalizationSourceName;
+            LocalizationSourceName = PlenumsoftConsts.LocalizationSourceName;
         }
 
         public override async Task<UserDto> Create(CreateUserDto input)

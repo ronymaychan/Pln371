@@ -3,7 +3,7 @@ using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Abp.MultiTenancy;
 
-namespace <%= projectName %>.MultiTenancy.Dto
+namespace Plenumsoft.MultiTenancy.Dto
 {
     [AutoMapFrom(typeof(Tenant))]
     public class TenantDto : EntityDto

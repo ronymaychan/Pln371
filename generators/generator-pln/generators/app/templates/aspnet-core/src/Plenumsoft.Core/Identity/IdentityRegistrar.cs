@@ -1,12 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using <%= projectName %>.Authorization;
-using <%= projectName %>.Authorization.Roles;
-using <%= projectName %>.Authorization.Users;
-using <%= projectName %>.Editions;
-using <%= projectName %>.MultiTenancy;
+using Plenumsoft.Authorization;
+using Plenumsoft.Authorization.Roles;
+using Plenumsoft.Authorization.Users;
+using Plenumsoft.Editions;
+using Plenumsoft.MultiTenancy;
 
-namespace <%= projectName %>.Identity
+namespace Plenumsoft.Identity
 {
     public static class IdentityRegistrar
     {

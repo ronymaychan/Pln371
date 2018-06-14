@@ -6,13 +6,13 @@ using Abp.Configuration;
 using Abp.IdentityFramework;
 using Abp.Net.Mail.Smtp;
 using Abp.Zero.Configuration;
-using <%= projectName %>.Authorization.Accounts.Dto;
-using <%= projectName %>.Authorization.Users;
-using <%= projectName %>.Web;
+using Plenumsoft.Authorization.Accounts.Dto;
+using Plenumsoft.Authorization.Users;
+using Plenumsoft.Web;
 
-namespace <%= projectName %>.Authorization.Accounts
+namespace Plenumsoft.Authorization.Accounts
 {
-    public class AccountAppService : <%= projectName %>AppServiceBase, IAccountAppService
+    public class AccountAppService : PlenumsoftAppServiceBase, IAccountAppService
     {
         private readonly UserRegistrationManager _userRegistrationManager;
         private readonly UserManager _userManager;
@@ -28,16 +28,16 @@ namespace <%= projectName %>.Authorization.Accounts
             _userManager = userManager;
             _smtpEmailSender = smtpEmailSender;
 
-            LocalizationSourceName = <%= projectName %>Consts.LocalizationSourceName;
+            LocalizationSourceName = PlenumsoftConsts.LocalizationSourceName;
         }
 
-        [AbpAllowAnonymous]
+        /*[AbpAllowAnonymous]
         public string Demo()
         {
             var inforDir = WebContentDirectoryFinder.CalculateContentRootFolder();
             
             return L("HomePage");
-        }
+        }*/
 
         public async Task<IsTenantAvailableOutput> IsTenantAvailable(IsTenantAvailableInput input)
         {

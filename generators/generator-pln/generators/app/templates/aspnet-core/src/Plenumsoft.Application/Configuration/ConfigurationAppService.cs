@@ -1,12 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Abp.Authorization;
 using Abp.Runtime.Session;
-using <%= projectName %>.Configuration.Dto;
+using Plenumsoft.Configuration.Dto;
 
-namespace <%= projectName %>.Configuration
+namespace Plenumsoft.Configuration
 {
     [AbpAuthorize]
-    public class ConfigurationAppService : <%= projectName %>AppServiceBase, IConfigurationAppService
+    public class ConfigurationAppService : PlenumsoftAppServiceBase, IConfigurationAppService
     {
         public async Task ChangeUiTheme(ChangeUiThemeInput input)
         {

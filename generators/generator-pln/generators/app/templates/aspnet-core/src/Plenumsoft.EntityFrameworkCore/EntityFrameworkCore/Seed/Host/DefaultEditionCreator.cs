@@ -2,15 +2,15 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Abp.Application.Editions;
 using Abp.Application.Features;
-using <%= projectName %>.Editions;
+using Plenumsoft.Editions;
 
-namespace <%= projectName %>.EntityFrameworkCore.Seed.Host
+namespace Plenumsoft.EntityFrameworkCore.Seed.Host
 {
     public class DefaultEditionCreator
     {
-        private readonly <%= projectName %>DbContext _context;
+        private readonly PlenumsoftDbContext _context;
 
-        public DefaultEditionCreator(<%= projectName %>DbContext context)
+        public DefaultEditionCreator(PlenumsoftDbContext context)
         {
             _context = context;
         }

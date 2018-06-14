@@ -3,8 +3,8 @@
     <VersionPrefix>1.0.0.0</VersionPrefix>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
-    <AssemblyName><%= projectName %>.Web.Core</AssemblyName>
-    <PackageId><%= projectName %>.Web.Core</PackageId>
+    <AssemblyName>Plenumsoft.Web.Core</AssemblyName>
+    <PackageId>Plenumsoft.Web.Core</PackageId>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
@@ -13,14 +13,14 @@
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
-    <RootNamespace><%= projectName %></RootNamespace>
+    <RootNamespace>Plenumsoft</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <DefineConstants>FEATURE_SIGNALR_ASPNETCORE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\<%= projectName %>.Application\<%= projectName %>.Application.csproj" />
-    <ProjectReference Include="..\<%= projectName %>.EntityFrameworkCore\<%= projectName %>.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Plenumsoft.Application\Plenumsoft.Application.csproj" />
+    <ProjectReference Include="..\Plenumsoft.EntityFrameworkCore\Plenumsoft.EntityFrameworkCore.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />

@@ -2,17 +2,17 @@
 using Abp.EntityFrameworkCore;
 using Abp.EntityFrameworkCore.Repositories;
 
-namespace <%= projectName %>.EntityFrameworkCore.Repositories
+namespace Plenumsoft.EntityFrameworkCore.Repositories
 {
     /// <summary>
     /// Base class for custom repositories of the application.
     /// </summary>
     /// <typeparam name="TEntity">Entity type</typeparam>
     /// <typeparam name="TPrimaryKey">Primary key type of the entity</typeparam>
-    public abstract class <%= projectName %>RepositoryBase<TEntity, TPrimaryKey> : EfCoreRepositoryBase<<%= projectName %>DbContext, TEntity, TPrimaryKey>
+    public abstract class PlenumsoftRepositoryBase<TEntity, TPrimaryKey> : EfCoreRepositoryBase<PlenumsoftDbContext, TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
-        protected <%= projectName %>RepositoryBase(IDbContextProvider<<%= projectName %>DbContext> dbContextProvider)
+        protected PlenumsoftRepositoryBase(IDbContextProvider<PlenumsoftDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
         }
@@ -22,13 +22,13 @@ namespace <%= projectName %>.EntityFrameworkCore.Repositories
 
     /// <summary>
     /// Base class for custom repositories of the application.
-    /// This is a shortcut of <see cref="<%= projectName %>RepositoryBase{TEntity,TPrimaryKey}"/> for <see cref="int"/> primary key.
+    /// This is a shortcut of <see cref="PlenumsoftRepositoryBase{TEntity,TPrimaryKey}"/> for <see cref="int"/> primary key.
     /// </summary>
     /// <typeparam name="TEntity">Entity type</typeparam>
-    public abstract class <%= projectName %>RepositoryBase<TEntity> : <%= projectName %>RepositoryBase<TEntity, int>
+    public abstract class PlenumsoftRepositoryBase<TEntity> : PlenumsoftRepositoryBase<TEntity, int>
         where TEntity : class, IEntity<int>
     {
-        protected <%= projectName %>RepositoryBase(IDbContextProvider<<%= projectName %>DbContext> dbContextProvider)
+        protected PlenumsoftRepositoryBase(IDbContextProvider<PlenumsoftDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
         }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace <%= projectName %>.Web.Host.Startup
+namespace Plenumsoft.Web.Host.Startup
 {
     public class Program
     {

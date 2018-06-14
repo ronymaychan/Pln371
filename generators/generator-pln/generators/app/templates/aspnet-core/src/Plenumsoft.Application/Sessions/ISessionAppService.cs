@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Abp.Application.Services;
-using <%= projectName %>.Sessions.Dto;
+using Plenumsoft.Sessions.Dto;
 
-namespace <%= projectName %>.Sessions
+namespace Plenumsoft.Sessions
 {
     public interface ISessionAppService : IApplicationService
     {

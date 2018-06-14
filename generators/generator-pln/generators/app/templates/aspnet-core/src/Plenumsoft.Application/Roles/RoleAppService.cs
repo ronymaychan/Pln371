@@ -9,12 +9,12 @@ using Abp.Authorization;
 using Abp.Domain.Repositories;
 using Abp.IdentityFramework;
 using Abp.UI;
-using <%= projectName %>.Authorization;
-using <%= projectName %>.Authorization.Roles;
-using <%= projectName %>.Authorization.Users;
-using <%= projectName %>.Roles.Dto;
+using Plenumsoft.Authorization;
+using Plenumsoft.Authorization.Roles;
+using Plenumsoft.Authorization.Users;
+using Plenumsoft.Roles.Dto;
 
-namespace <%= projectName %>.Roles
+namespace Plenumsoft.Roles
 {
     [AbpAuthorize(PermissionNames.Pages_Roles)]
     public class RoleAppService : AsyncCrudAppService<Role, RoleDto, int, PagedResultRequestDto, CreateRoleDto, RoleDto>, IRoleAppService

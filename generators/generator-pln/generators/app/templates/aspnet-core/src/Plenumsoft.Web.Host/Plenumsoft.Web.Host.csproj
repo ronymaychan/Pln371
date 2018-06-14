@@ -3,10 +3,10 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
     <PreserveCompilationContext>true</PreserveCompilationContext>
-    <AssemblyName><%= projectName %>.Web.Host</AssemblyName>
+    <AssemblyName>Plenumsoft.Web.Host</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId><%= projectName %>.Web.Host</PackageId>
-    <UserSecretsId>AbpCompanyName-<%= projectName %>-56C2EF2F-ABD6-4EFC-AAF2-2E81C34E8FB1</UserSecretsId>
+    <PackageId>Plenumsoft.Web.Host</PackageId>
+    <UserSecretsId>AbpCompanyName-Plenumsoft-56C2EF2F-ABD6-4EFC-AAF2-2E81C34E8FB1</UserSecretsId>
   </PropertyGroup>
   <PropertyGroup>
     <DefineConstants>FEATURE_SIGNALR_ASPNETCORE</DefineConstants>
@@ -28,7 +28,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\<%= projectName %>.Web.Core\<%= projectName %>.Web.Core.csproj" />
+    <ProjectReference Include="..\Plenumsoft.Web.Core\Plenumsoft.Web.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4">

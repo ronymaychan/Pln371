@@ -6,9 +6,9 @@ using Abp.Authorization.Roles;
 using Abp.Domain.Uow;
 using Abp.Runtime.Caching;
 using Abp.Zero.Configuration;
-using <%= projectName %>.Authorization.Users;
+using Plenumsoft.Authorization.Users;
 
-namespace <%= projectName %>.Authorization.Roles
+namespace Plenumsoft.Authorization.Roles
 {
     public class RoleManager : AbpRoleManager<Role, User>
     {

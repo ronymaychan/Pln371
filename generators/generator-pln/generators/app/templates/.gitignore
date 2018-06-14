@@ -4,6 +4,6 @@
 .vs/
 obj/
 bin/
-aspnet-core/src/<%= projectName %>.Web.Host/App_Data/Logs/
-aspnet-core/src/<%= projectName %>.Web.Mvc/App_Data/Logs/
-aspnet-core/src/<%= projectName %>.Migrator/Logs/Logs.txt
+aspnet-core/src/Plenumsoft.Web.Host/App_Data/Logs/
+aspnet-core/src/Plenumsoft.Web.Mvc/App_Data/Logs/
+aspnet-core/src/Plenumsoft.Migrator/Logs/Logs.txt

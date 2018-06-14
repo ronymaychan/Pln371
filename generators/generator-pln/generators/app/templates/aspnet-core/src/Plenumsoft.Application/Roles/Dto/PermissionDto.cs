@@ -2,7 +2,7 @@ using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Abp.Authorization;
 
-namespace <%= projectName %>.Roles.Dto
+namespace Plenumsoft.Roles.Dto
 {
     [AutoMapFrom(typeof(Permission))]
     public class PermissionDto : EntityDto<long>

@@ -4,11 +4,11 @@ using Abp;
 using Abp.Extensions;
 using Abp.Notifications;
 using Abp.Timing;
-using <%= projectName %>.Controllers;
+using Plenumsoft.Controllers;
 
-namespace <%= projectName %>.Web.Host.Controllers
+namespace Plenumsoft.Web.Host.Controllers
 {
-    public class HomeController : <%= projectName %>ControllerBase
+    public class HomeController : PlenumsoftControllerBase
     {
         private readonly INotificationPublisher _notificationPublisher;
 

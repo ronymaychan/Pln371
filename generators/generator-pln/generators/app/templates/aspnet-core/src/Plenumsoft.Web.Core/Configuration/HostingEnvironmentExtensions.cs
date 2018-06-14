@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 
-namespace <%= projectName %>.Configuration
+namespace Plenumsoft.Configuration
 {
     public static class HostingEnvironmentExtensions
     {

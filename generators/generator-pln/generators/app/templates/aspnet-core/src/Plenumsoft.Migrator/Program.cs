@@ -5,7 +5,7 @@ using Abp.Castle.Logging.Log4Net;
 using Abp.Collections.Extensions;
 using Abp.Dependency;
 
-namespace <%= projectName %>.Migrator
+namespace Plenumsoft.Migrator
 {
     public class Program
     {
@@ -15,7 +15,7 @@ namespace <%= projectName %>.Migrator
         {
             ParseArgs(args);
 
-            using (var bootstrapper = AbpBootstrapper.Create<<%= projectName %>MigratorModule>())
+            using (var bootstrapper = AbpBootstrapper.Create<PlenumsoftMigratorModule>())
             {
                 bootstrapper.IocManager.IocContainer
                     .AddFacility<LoggingFacility>(

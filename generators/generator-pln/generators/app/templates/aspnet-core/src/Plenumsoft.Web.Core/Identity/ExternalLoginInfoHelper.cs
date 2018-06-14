@@ -3,7 +3,7 @@ using System.Linq;
 using System.Security.Claims;
 using Abp.Extensions;
 
-namespace <%= projectName %>.Identity
+namespace Plenumsoft.Identity
 {
     public class ExternalLoginInfoHelper
     {

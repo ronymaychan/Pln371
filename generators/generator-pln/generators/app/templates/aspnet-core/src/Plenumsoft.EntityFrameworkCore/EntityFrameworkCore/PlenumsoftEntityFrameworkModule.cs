@@ -2,14 +2,14 @@
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Abp.Zero.EntityFrameworkCore;
-using <%= projectName %>.EntityFrameworkCore.Seed;
+using Plenumsoft.EntityFrameworkCore.Seed;
 
-namespace <%= projectName %>.EntityFrameworkCore
+namespace Plenumsoft.EntityFrameworkCore
 {
     [DependsOn(
-        typeof(<%= projectName %>CoreModule), 
+        typeof(PlenumsoftCoreModule), 
         typeof(AbpZeroCoreEntityFrameworkCoreModule))]
-    public class <%= projectName %>EntityFrameworkModule : AbpModule
+    public class PlenumsoftEntityFrameworkModule : AbpModule
     {
         /* Used it tests to skip dbcontext registration, in order to use in-memory database of EF Core */
         public bool SkipDbContextRegistration { get; set; }
@@ -20,15 +20,15 @@ namespace <%= projectName %>.EntityFrameworkCore
         {
             if (!SkipDbContextRegistration)
             {
-                Configuration.Modules.AbpEfCore().AddDbContext<<%= projectName %>DbContext>(options =>
+                Configuration.Modules.AbpEfCore().AddDbContext<PlenumsoftDbContext>(options =>
                 {
                     if (options.ExistingConnection != null)
                     {
-                        <%= projectName %>DbContextConfigurer.Configure(options.DbContextOptions, options.ExistingConnection);
+                        PlenumsoftDbContextConfigurer.Configure(options.DbContextOptions, options.ExistingConnection);
                     }
                     else
                     {
-                        <%= projectName %>DbContextConfigurer.Configure(options.DbContextOptions, options.ConnectionString);
+                        PlenumsoftDbContextConfigurer.Configure(options.DbContextOptions, options.ConnectionString);
                     }
                 });
             }
@@ -36,7 +36,7 @@ namespace <%= projectName %>.EntityFrameworkCore
 
         public override void Initialize()
         {
-            IocManager.RegisterAssemblyByConvention(typeof(<%= projectName %>EntityFrameworkModule).GetAssembly());
+            IocManager.RegisterAssemblyByConvention(typeof(PlenumsoftEntityFrameworkModule).GetAssembly());
         }
 
         public override void PostInitialize()

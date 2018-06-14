@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Abp.Dependency;
 
-namespace <%= projectName %>.Authentication.External
+namespace Plenumsoft.Authentication.External
 {
     public class ExternalAuthConfiguration : IExternalAuthConfiguration, ISingletonDependency
     {

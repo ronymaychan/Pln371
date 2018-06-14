@@ -5,7 +5,7 @@ using System.Reflection;
 using System.IO;
 using System.Globalization;
 
-namespace <%= projectName %>.Helpers
+namespace Plenumsoft.Helpers
 {
     public static class FluentTemplate
     {

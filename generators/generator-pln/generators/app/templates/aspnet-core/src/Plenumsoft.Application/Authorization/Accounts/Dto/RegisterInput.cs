@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using Abp.Auditing;
 using Abp.Authorization.Users;
 using Abp.Extensions;
-using <%= projectName %>.Validation;
+using Plenumsoft.Validation;
 
-namespace <%= projectName %>.Authorization.Accounts.Dto
+namespace Plenumsoft.Authorization.Accounts.Dto
 {
     public class RegisterInput : IValidatableObject
     {

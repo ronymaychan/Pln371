@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace <%= projectName %>.Users.Dto
+namespace Plenumsoft.Users.Dto
 {
     public class ChangePasswordDto
     {

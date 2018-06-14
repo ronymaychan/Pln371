@@ -2,13 +2,13 @@ using Abp.AspNetCore.Mvc.Controllers;
 using Abp.IdentityFramework;
 using Microsoft.AspNetCore.Identity;
 
-namespace <%= projectName %>.Controllers
+namespace Plenumsoft.Controllers
 {
-    public abstract class <%= projectName %>ControllerBase: AbpController
+    public abstract class PlenumsoftControllerBase: AbpController
     {
-        protected <%= projectName %>ControllerBase()
+        protected PlenumsoftControllerBase()
         {
-            LocalizationSourceName = <%= projectName %>Consts.LocalizationSourceName;
+            LocalizationSourceName = PlenumsoftConsts.LocalizationSourceName;
         }
 
         protected void CheckErrors(IdentityResult identityResult)

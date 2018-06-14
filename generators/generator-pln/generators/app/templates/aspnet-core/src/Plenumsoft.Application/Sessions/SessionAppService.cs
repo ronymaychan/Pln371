@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Abp.Auditing;
-using <%= projectName %>.Sessions.Dto;
-using <%= projectName %>.SignalR;
+using Plenumsoft.Sessions.Dto;
+using Plenumsoft.SignalR;
 
-namespace <%= projectName %>.Sessions
+namespace Plenumsoft.Sessions
 {
-    public class SessionAppService : <%= projectName %>AppServiceBase, ISessionAppService
+    public class SessionAppService : PlenumsoftAppServiceBase, ISessionAppService
     {
         [DisableAuditing]
         public async Task<GetCurrentLoginInformationsOutput> GetCurrentLoginInformations()

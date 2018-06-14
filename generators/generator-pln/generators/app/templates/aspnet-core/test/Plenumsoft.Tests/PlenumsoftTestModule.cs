@@ -9,19 +9,19 @@ using Abp.Net.Mail;
 using Abp.TestBase;
 using Abp.Zero.Configuration;
 using Abp.Zero.EntityFrameworkCore;
-using <%= projectName %>.EntityFrameworkCore;
-using <%= projectName %>.Tests.DependencyInjection;
+using Plenumsoft.EntityFrameworkCore;
+using Plenumsoft.Tests.DependencyInjection;
 
-namespace <%= projectName %>.Tests
+namespace Plenumsoft.Tests
 {
     [DependsOn(
-        typeof(<%= projectName %>ApplicationModule),
-        typeof(<%= projectName %>EntityFrameworkModule),
+        typeof(PlenumsoftApplicationModule),
+        typeof(PlenumsoftEntityFrameworkModule),
         typeof(AbpTestBaseModule)
         )]
-    public class <%= projectName %>TestModule : AbpModule
+    public class PlenumsoftTestModule : AbpModule
     {
-        public <%= projectName %>TestModule(<%= projectName %>EntityFrameworkModule abpProjectNameEntityFrameworkModule)
+        public PlenumsoftTestModule(PlenumsoftEntityFrameworkModule abpProjectNameEntityFrameworkModule)
         {
             abpProjectNameEntityFrameworkModule.SkipDbContextRegistration = true;
             abpProjectNameEntityFrameworkModule.SkipDbSeed = true;
@@ -40,7 +40,7 @@ namespace <%= projectName %>.Tests
             // Use database for language management
             Configuration.Modules.Zero().LanguageManagement.EnableDbLocalization();
 
-            RegisterFakeService<AbpZeroDbMigrator<<%= projectName %>DbContext>>();
+            RegisterFakeService<AbpZeroDbMigrator<PlenumsoftDbContext>>();
 
             Configuration.ReplaceService<IEmailSender, NullEmailSender>(DependencyLifeStyle.Transient);
         }

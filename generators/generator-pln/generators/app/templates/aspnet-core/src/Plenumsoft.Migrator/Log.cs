@@ -3,7 +3,7 @@ using Castle.Core.Logging;
 using Abp.Dependency;
 using Abp.Timing;
 
-namespace <%= projectName %>.Migrator
+namespace Plenumsoft.Migrator
 {
     public class Log : ITransientDependency
     {

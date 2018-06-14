@@ -1,7 +1,7 @@
 ﻿using Abp.MultiTenancy;
-using <%= projectName %>.Authorization.Users;
+using Plenumsoft.Authorization.Users;
 
-namespace <%= projectName %>.MultiTenancy
+namespace Plenumsoft.MultiTenancy
 {
     public class Tenant : AbpTenant<User>
     {

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Owin.Builder;
 using Owin;
 
-namespace <%= projectName %>.Owin
+namespace Plenumsoft.Owin
 {
     /// <summary>
     /// This class (UseAppBuilder method) integrates OWIN pipeline to ASP.NET Core pipeline and

@@ -3,17 +3,17 @@ using Abp.Reflection.Extensions;
 using Abp.Timing;
 using Abp.Zero;
 using Abp.Zero.Configuration;
-using <%= projectName %>.Authorization.Roles;
-using <%= projectName %>.Authorization.Users;
-using <%= projectName %>.Configuration;
-using <%= projectName %>.Localization;
-using <%= projectName %>.MultiTenancy;
-using <%= projectName %>.Timing;
+using Plenumsoft.Authorization.Roles;
+using Plenumsoft.Authorization.Users;
+using Plenumsoft.Configuration;
+using Plenumsoft.Localization;
+using Plenumsoft.MultiTenancy;
+using Plenumsoft.Timing;
 
-namespace <%= projectName %>
+namespace Plenumsoft
 {
     [DependsOn(typeof(AbpZeroCoreModule))]
-    public class <%= projectName %>CoreModule : AbpModule
+    public class PlenumsoftCoreModule : AbpModule
     {
         public override void PreInitialize()
         {
@@ -24,10 +24,10 @@ namespace <%= projectName %>
             Configuration.Modules.Zero().EntityTypes.Role = typeof(Role);
             Configuration.Modules.Zero().EntityTypes.User = typeof(User);
 
-            <%= projectName %>LocalizationConfigurer.Configure(Configuration.Localization);
+            PlenumsoftLocalizationConfigurer.Configure(Configuration.Localization);
 
             // Enable this line to create a multi-tenant application.
-            Configuration.MultiTenancy.IsEnabled = <%= projectName %>Consts.MultiTenancyEnabled;
+            Configuration.MultiTenancy.IsEnabled = PlenumsoftConsts.MultiTenancyEnabled;
 
             // Configure roles
             AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
@@ -37,7 +37,7 @@ namespace <%= projectName %>
 
         public override void Initialize()
         {
-            IocManager.RegisterAssemblyByConvention(typeof(<%= projectName %>CoreModule).GetAssembly());
+            IocManager.RegisterAssemblyByConvention(typeof(PlenumsoftCoreModule).GetAssembly());
         }
 
         public override void PostInitialize()

@@ -1,4 +1,4 @@
-﻿namespace <%= projectName %>
+﻿namespace Plenumsoft
 {
     public class AppConsts
     {

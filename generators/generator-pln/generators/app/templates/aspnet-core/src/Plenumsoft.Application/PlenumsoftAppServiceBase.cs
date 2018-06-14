@@ -4,23 +4,23 @@ using Microsoft.AspNetCore.Identity;
 using Abp.Application.Services;
 using Abp.IdentityFramework;
 using Abp.Runtime.Session;
-using <%= projectName %>.Authorization.Users;
-using <%= projectName %>.MultiTenancy;
+using Plenumsoft.Authorization.Users;
+using Plenumsoft.MultiTenancy;
 
-namespace <%= projectName %>
+namespace Plenumsoft
 {
     /// <summary>
     /// Derive your application services from this class.
     /// </summary>
-    public abstract class <%= projectName %>AppServiceBase : ApplicationService
+    public abstract class PlenumsoftAppServiceBase : ApplicationService
     {
         public TenantManager TenantManager { get; set; }
 
         public UserManager UserManager { get; set; }
 
-        protected <%= projectName %>AppServiceBase()
+        protected PlenumsoftAppServiceBase()
         {
-            LocalizationSourceName = <%= projectName %>Consts.LocalizationSourceName;
+            LocalizationSourceName = PlenumsoftConsts.LocalizationSourceName;
         }
 
         protected virtual Task<User> GetCurrentUserAsync()

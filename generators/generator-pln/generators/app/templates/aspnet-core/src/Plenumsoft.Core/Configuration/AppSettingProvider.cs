@@ -2,7 +2,7 @@
 using Abp.Configuration;
 using Abp.Zero.Configuration;
 
-namespace <%= projectName %>.Configuration
+namespace Plenumsoft.Configuration
 {
     public class AppSettingProvider : SettingProvider
     {

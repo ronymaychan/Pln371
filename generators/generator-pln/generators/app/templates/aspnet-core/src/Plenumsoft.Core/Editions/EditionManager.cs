@@ -2,7 +2,7 @@
 using Abp.Application.Features;
 using Abp.Domain.Repositories;
 
-namespace <%= projectName %>.Editions
+namespace Plenumsoft.Editions
 {
     public class EditionManager : AbpEditionManager
     {

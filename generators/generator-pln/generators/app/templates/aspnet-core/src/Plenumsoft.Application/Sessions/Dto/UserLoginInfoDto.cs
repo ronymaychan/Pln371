@@ -1,8 +1,8 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using <%= projectName %>.Authorization.Users;
+using Plenumsoft.Authorization.Users;
 
-namespace <%= projectName %>.Sessions.Dto
+namespace Plenumsoft.Sessions.Dto
 {
     [AutoMapFrom(typeof(User))]
     public class UserLoginInfoDto : EntityDto<long>

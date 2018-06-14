@@ -1,7 +1,7 @@
 ﻿using Abp.AutoMapper;
-using <%= projectName %>.Authentication.External;
+using Plenumsoft.Authentication.External;
 
-namespace <%= projectName %>.Models.TokenAuth
+namespace Plenumsoft.Models.TokenAuth
 {
     [AutoMapFrom(typeof(ExternalLoginProviderInfo))]
     public class ExternalLoginProviderInfoModel

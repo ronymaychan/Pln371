@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Abp.Dependency;
 
-namespace <%= projectName %>.Authentication.External
+namespace Plenumsoft.Authentication.External
 {
     public abstract class ExternalAuthProviderApiBase : IExternalAuthProviderApi, ITransientDependency
     {

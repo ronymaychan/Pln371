@@ -11,17 +11,17 @@ using Abp.Authorization.Users;
 using Abp.MultiTenancy;
 using Abp.Runtime.Security;
 using Abp.UI;
-using <%= projectName %>.Authentication.External;
-using <%= projectName %>.Authentication.JwtBearer;
-using <%= projectName %>.Authorization;
-using <%= projectName %>.Authorization.Users;
-using <%= projectName %>.Models.TokenAuth;
-using <%= projectName %>.MultiTenancy;
+using Plenumsoft.Authentication.External;
+using Plenumsoft.Authentication.JwtBearer;
+using Plenumsoft.Authorization;
+using Plenumsoft.Authorization.Users;
+using Plenumsoft.Models.TokenAuth;
+using Plenumsoft.MultiTenancy;
 
-namespace <%= projectName %>.Controllers
+namespace Plenumsoft.Controllers
 {
     [Route("api/[controller]/[action]")]
-    public class TokenAuthController : <%= projectName %>ControllerBase
+    public class TokenAuthController : PlenumsoftControllerBase
     {
         private readonly LogInManager _logInManager;
         private readonly ITenantCache _tenantCache;

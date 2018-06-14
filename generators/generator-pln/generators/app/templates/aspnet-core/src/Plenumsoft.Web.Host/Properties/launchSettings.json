@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "<%= projectName %>.Web.Host": {
+    "Plenumsoft.Web.Host": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "http://localhost:21021",

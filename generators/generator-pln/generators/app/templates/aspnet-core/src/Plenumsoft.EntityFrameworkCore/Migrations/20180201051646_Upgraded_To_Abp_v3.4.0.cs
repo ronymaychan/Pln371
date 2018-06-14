@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace <%= projectName %>.Migrations
+namespace Plenumsoft.Migrations
 {
     public partial class Upgraded_To_Abp_v340 : Migration
     {

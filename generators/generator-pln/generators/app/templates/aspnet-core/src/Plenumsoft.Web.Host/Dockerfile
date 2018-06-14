@@ -3,4 +3,4 @@ FROM microsoft/aspnetcore:2.0.1
 WORKDIR /app
 COPY . .
 
-ENTRYPOINT ["dotnet", "<%= projectName %>.Web.Host.dll"]
+ENTRYPOINT ["dotnet", "Plenumsoft.Web.Host.dll"]

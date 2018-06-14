@@ -3,17 +3,17 @@ using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
 using Abp.Reflection.Extensions;
 
-namespace <%= projectName %>.Localization
+namespace Plenumsoft.Localization
 {
-    public static class <%= projectName %>LocalizationConfigurer
+    public static class PlenumsoftLocalizationConfigurer
     {
         public static void Configure(ILocalizationConfiguration localizationConfiguration)
         {
             localizationConfiguration.Sources.Add(
-                new DictionaryBasedLocalizationSource(<%= projectName %>Consts.LocalizationSourceName,
+                new DictionaryBasedLocalizationSource(PlenumsoftConsts.LocalizationSourceName,
                     new XmlEmbeddedFileLocalizationDictionaryProvider(
-                        typeof(<%= projectName %>LocalizationConfigurer).GetAssembly(),
-                        "<%= projectName %>.Localization.SourceFiles"
+                        typeof(PlenumsoftLocalizationConfigurer).GetAssembly(),
+                        "Plenumsoft.Localization.SourceFiles"
                     )
                 )
             );

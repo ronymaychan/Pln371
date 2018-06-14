@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 
-namespace <%= projectName %>.Authentication.JwtBearer
+namespace Plenumsoft.Authentication.JwtBearer
 {
     public static class JwtTokenMiddleware
     {

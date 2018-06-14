@@ -1,4 +1,4 @@
-namespace <%= projectName %>.Configuration.Ui
+namespace Plenumsoft.Configuration.Ui
 {
     public class UiThemeInfo
     {

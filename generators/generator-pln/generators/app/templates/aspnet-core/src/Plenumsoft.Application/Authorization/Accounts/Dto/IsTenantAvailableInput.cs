@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Abp.MultiTenancy;
 
-namespace <%= projectName %>.Authorization.Accounts.Dto
+namespace Plenumsoft.Authorization.Accounts.Dto
 {
     public class IsTenantAvailableInput
     {
