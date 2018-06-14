@@ -1,10 +1,10 @@
-import { PlenumsoftTemplatePage } from './app.po';
+import { <%= projectName %>TemplatePage } from './app.po';
 
-describe('Plenumsoft App', function() {
-  let page: PlenumsoftTemplatePage;
+describe('<%= projectName %> App', function() {
+  let page: <%= projectName %>TemplatePage;
 
   beforeEach(() => {
-    page = new PlenumsoftTemplatePage();
+    page = new <%= projectName %>TemplatePage();
   });
 
   it('should display message saying app works', () => {

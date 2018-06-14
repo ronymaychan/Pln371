@@ -3,30 +3,30 @@ using Castle.MicroKernel.Registration;
 using Abp.Events.Bus;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
-using Plenumsoft.Configuration;
-using Plenumsoft.EntityFrameworkCore;
-using Plenumsoft.Migrator.DependencyInjection;
+using <%= projectName %>.Configuration;
+using <%= projectName %>.EntityFrameworkCore;
+using <%= projectName %>.Migrator.DependencyInjection;
 
-namespace Plenumsoft.Migrator
+namespace <%= projectName %>.Migrator
 {
-    [DependsOn(typeof(PlenumsoftEntityFrameworkModule))]
-    public class PlenumsoftMigratorModule : AbpModule
+    [DependsOn(typeof(<%= projectName %>EntityFrameworkModule))]
+    public class <%= projectName %>MigratorModule : AbpModule
     {
         private readonly IConfigurationRoot _appConfiguration;
 
-        public PlenumsoftMigratorModule(PlenumsoftEntityFrameworkModule abpProjectNameEntityFrameworkModule)
+        public <%= projectName %>MigratorModule(<%= projectName %>EntityFrameworkModule abpProjectNameEntityFrameworkModule)
         {
             abpProjectNameEntityFrameworkModule.SkipDbSeed = true;
 
             _appConfiguration = AppConfigurations.Get(
-                typeof(PlenumsoftMigratorModule).GetAssembly().GetDirectoryPathOrNull()
+                typeof(<%= projectName %>MigratorModule).GetAssembly().GetDirectoryPathOrNull()
             );
         }
 
         public override void PreInitialize()
         {
             Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(
-                PlenumsoftConsts.ConnectionStringName
+                <%= projectName %>Consts.ConnectionStringName
             );
 
             Configuration.BackgroundJobs.IsJobExecutionEnabled = false;
@@ -40,7 +40,7 @@ namespace Plenumsoft.Migrator
 
         public override void Initialize()
         {
-            IocManager.RegisterAssemblyByConvention(typeof(PlenumsoftMigratorModule).GetAssembly());
+            IocManager.RegisterAssemblyByConvention(typeof(<%= projectName %>MigratorModule).GetAssembly());
             ServiceCollectionRegistrar.Register(IocManager);
         }
     }

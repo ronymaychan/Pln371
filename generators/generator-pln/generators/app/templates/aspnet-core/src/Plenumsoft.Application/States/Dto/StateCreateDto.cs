@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Plenumsoft.States.Dto
+namespace <%= projectName %>.States.Dto
 {
     public class StateCreateDto : EntityDto<string>
     {

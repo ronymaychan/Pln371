@@ -7,19 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AFAA0841-BD9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{F10AA149-2626-486E-85BB-9CD5365F3016}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plenumsoft.Core", "src\Plenumsoft.Core\Plenumsoft.Core.csproj", "{0FA75A5B-AB83-4FD0-B545-279774C01E87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "<%= projectName %>.Core", "src\<%= projectName %>.Core\<%= projectName %>.Core.csproj", "{0FA75A5B-AB83-4FD0-B545-279774C01E87}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plenumsoft.Application", "src\Plenumsoft.Application\Plenumsoft.Application.csproj", "{3870C648-4AEA-4B85-BA3F-F2F63B96136A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "<%= projectName %>.Application", "src\<%= projectName %>.Application\<%= projectName %>.Application.csproj", "{3870C648-4AEA-4B85-BA3F-F2F63B96136A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plenumsoft.Tests", "test\Plenumsoft.Tests\Plenumsoft.Tests.csproj", "{0D4C5D00-C144-4213-A007-4B8944113AB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "<%= projectName %>.Tests", "test\<%= projectName %>.Tests\<%= projectName %>.Tests.csproj", "{0D4C5D00-C144-4213-A007-4B8944113AB1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plenumsoft.Migrator", "src\Plenumsoft.Migrator\Plenumsoft.Migrator.csproj", "{880B3591-E057-46FE-B525-10BD83828B93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "<%= projectName %>.Migrator", "src\<%= projectName %>.Migrator\<%= projectName %>.Migrator.csproj", "{880B3591-E057-46FE-B525-10BD83828B93}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plenumsoft.Web.Host", "src\Plenumsoft.Web.Host\Plenumsoft.Web.Host.csproj", "{38E184BD-E874-4633-A947-AED4FDB73F40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "<%= projectName %>.Web.Host", "src\<%= projectName %>.Web.Host\<%= projectName %>.Web.Host.csproj", "{38E184BD-E874-4633-A947-AED4FDB73F40}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Plenumsoft.Web.Core", "src\Plenumsoft.Web.Core\Plenumsoft.Web.Core.csproj", "{22CFE0D2-8DCA-42D7-AD7D-784C3862493F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "<%= projectName %>.Web.Core", "src\<%= projectName %>.Web.Core\<%= projectName %>.Web.Core.csproj", "{22CFE0D2-8DCA-42D7-AD7D-784C3862493F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plenumsoft.EntityFrameworkCore", "src\Plenumsoft.EntityFrameworkCore\Plenumsoft.EntityFrameworkCore.csproj", "{E0580562-F8F2-4EBB-B07A-ABFC6F2C314F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "<%= projectName %>.EntityFrameworkCore", "src\<%= projectName %>.EntityFrameworkCore\<%= projectName %>.EntityFrameworkCore.csproj", "{E0580562-F8F2-4EBB-B07A-ABFC6F2C314F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

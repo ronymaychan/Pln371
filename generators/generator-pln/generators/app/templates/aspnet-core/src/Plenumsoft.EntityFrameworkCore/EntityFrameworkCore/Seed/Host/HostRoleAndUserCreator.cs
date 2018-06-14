@@ -4,19 +4,19 @@ using Abp.Authorization;
 using Abp.Authorization.Roles;
 using Abp.Authorization.Users;
 using Abp.MultiTenancy;
-using Plenumsoft.Authorization;
-using Plenumsoft.Authorization.Roles;
-using Plenumsoft.Authorization.Users;
+using <%= projectName %>.Authorization;
+using <%= projectName %>.Authorization.Roles;
+using <%= projectName %>.Authorization.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 
-namespace Plenumsoft.EntityFrameworkCore.Seed.Host
+namespace <%= projectName %>.EntityFrameworkCore.Seed.Host
 {
     public class HostRoleAndUserCreator
     {
-        private readonly PlenumsoftDbContext _context;
+        private readonly <%= projectName %>DbContext _context;
 
-        public HostRoleAndUserCreator(PlenumsoftDbContext context)
+        public HostRoleAndUserCreator(<%= projectName %>DbContext context)
         {
             _context = context;
         }
@@ -46,7 +46,7 @@ namespace Plenumsoft.EntityFrameworkCore.Seed.Host
                 .ToList();
 
             var permissions = PermissionFinder
-                .GetAllPermissions(new PlenumsoftAuthorizationProvider())
+                .GetAllPermissions(new <%= projectName %>AuthorizationProvider())
                 .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Host) &&
                             !grantedPermissions.Contains(p.Name))
                 .ToList();

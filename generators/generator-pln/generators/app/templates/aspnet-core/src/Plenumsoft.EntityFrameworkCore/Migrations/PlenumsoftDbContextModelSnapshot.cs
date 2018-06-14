@@ -10,13 +10,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
-using Plenumsoft.EntityFrameworkCore;
+using <%= projectName %>.EntityFrameworkCore;
 using System;
 
-namespace Plenumsoft.Migrations
+namespace <%= projectName %>.Migrations
 {
-    [DbContext(typeof(PlenumsoftDbContext))]
-    partial class PlenumsoftDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(<%= projectName %>DbContext))]
+    partial class <%= projectName %>DbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -834,7 +834,7 @@ namespace Plenumsoft.Migrations
                     b.ToTable("AbpOrganizationUnits");
                 });
 
-            modelBuilder.Entity("Plenumsoft.Authorization.Roles.Role", b =>
+            modelBuilder.Entity("<%= projectName %>.Authorization.Roles.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -891,7 +891,7 @@ namespace Plenumsoft.Migrations
                     b.ToTable("AbpRoles");
                 });
 
-            modelBuilder.Entity("Plenumsoft.Authorization.Users.User", b =>
+            modelBuilder.Entity("<%= projectName %>.Authorization.Users.User", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
@@ -990,7 +990,7 @@ namespace Plenumsoft.Migrations
                     b.ToTable("AbpUsers");
                 });
 
-            modelBuilder.Entity("Plenumsoft.Domain.City", b =>
+            modelBuilder.Entity("<%= projectName %>.Domain.City", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -1014,7 +1014,7 @@ namespace Plenumsoft.Migrations
                     b.ToTable("Cities");
                 });
 
-            modelBuilder.Entity("Plenumsoft.Domain.Country", b =>
+            modelBuilder.Entity("<%= projectName %>.Domain.Country", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -1034,7 +1034,7 @@ namespace Plenumsoft.Migrations
                     b.ToTable("Countries");
                 });
 
-            modelBuilder.Entity("Plenumsoft.Domain.State", b =>
+            modelBuilder.Entity("<%= projectName %>.Domain.State", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -1058,7 +1058,7 @@ namespace Plenumsoft.Migrations
                     b.ToTable("States");
                 });
 
-            modelBuilder.Entity("Plenumsoft.MultiTenancy.Tenant", b =>
+            modelBuilder.Entity("<%= projectName %>.MultiTenancy.Tenant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -1160,7 +1160,7 @@ namespace Plenumsoft.Migrations
 
             modelBuilder.Entity("Abp.Authorization.Roles.RoleClaim", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Roles.Role")
+                    b.HasOne("<%= projectName %>.Authorization.Roles.Role")
                         .WithMany("Claims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -1168,7 +1168,7 @@ namespace Plenumsoft.Migrations
 
             modelBuilder.Entity("Abp.Authorization.Users.UserClaim", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Users.User")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -1176,7 +1176,7 @@ namespace Plenumsoft.Migrations
 
             modelBuilder.Entity("Abp.Authorization.Users.UserLogin", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Users.User")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -1184,7 +1184,7 @@ namespace Plenumsoft.Migrations
 
             modelBuilder.Entity("Abp.Authorization.Users.UserRole", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Users.User")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -1192,7 +1192,7 @@ namespace Plenumsoft.Migrations
 
             modelBuilder.Entity("Abp.Authorization.Users.UserToken", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Users.User")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User")
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -1200,7 +1200,7 @@ namespace Plenumsoft.Migrations
 
             modelBuilder.Entity("Abp.Configuration.Setting", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Users.User")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User")
                         .WithMany("Settings")
                         .HasForeignKey("UserId");
                 });
@@ -1228,57 +1228,57 @@ namespace Plenumsoft.Migrations
                         .HasForeignKey("ParentId");
                 });
 
-            modelBuilder.Entity("Plenumsoft.Authorization.Roles.Role", b =>
+            modelBuilder.Entity("<%= projectName %>.Authorization.Roles.Role", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Users.User", "CreatorUser")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User", "CreatorUser")
                         .WithMany()
                         .HasForeignKey("CreatorUserId");
 
-                    b.HasOne("Plenumsoft.Authorization.Users.User", "DeleterUser")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User", "DeleterUser")
                         .WithMany()
                         .HasForeignKey("DeleterUserId");
 
-                    b.HasOne("Plenumsoft.Authorization.Users.User", "LastModifierUser")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
                 });
 
-            modelBuilder.Entity("Plenumsoft.Authorization.Users.User", b =>
+            modelBuilder.Entity("<%= projectName %>.Authorization.Users.User", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Users.User", "CreatorUser")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User", "CreatorUser")
                         .WithMany()
                         .HasForeignKey("CreatorUserId");
 
-                    b.HasOne("Plenumsoft.Authorization.Users.User", "DeleterUser")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User", "DeleterUser")
                         .WithMany()
                         .HasForeignKey("DeleterUserId");
 
-                    b.HasOne("Plenumsoft.Authorization.Users.User", "LastModifierUser")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
                 });
 
-            modelBuilder.Entity("Plenumsoft.Domain.City", b =>
+            modelBuilder.Entity("<%= projectName %>.Domain.City", b =>
                 {
-                    b.HasOne("Plenumsoft.Domain.State", "State")
+                    b.HasOne("<%= projectName %>.Domain.State", "State")
                         .WithMany()
                         .HasForeignKey("StateId");
                 });
 
-            modelBuilder.Entity("Plenumsoft.Domain.State", b =>
+            modelBuilder.Entity("<%= projectName %>.Domain.State", b =>
                 {
-                    b.HasOne("Plenumsoft.Domain.Country", "Country")
+                    b.HasOne("<%= projectName %>.Domain.Country", "Country")
                         .WithMany()
                         .HasForeignKey("CountryId");
                 });
 
-            modelBuilder.Entity("Plenumsoft.MultiTenancy.Tenant", b =>
+            modelBuilder.Entity("<%= projectName %>.MultiTenancy.Tenant", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Users.User", "CreatorUser")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User", "CreatorUser")
                         .WithMany()
                         .HasForeignKey("CreatorUserId");
 
-                    b.HasOne("Plenumsoft.Authorization.Users.User", "DeleterUser")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User", "DeleterUser")
                         .WithMany()
                         .HasForeignKey("DeleterUserId");
 
@@ -1286,7 +1286,7 @@ namespace Plenumsoft.Migrations
                         .WithMany()
                         .HasForeignKey("EditionId");
 
-                    b.HasOne("Plenumsoft.Authorization.Users.User", "LastModifierUser")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
                 });
@@ -1301,7 +1301,7 @@ namespace Plenumsoft.Migrations
 
             modelBuilder.Entity("Abp.Authorization.Roles.RolePermissionSetting", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Roles.Role")
+                    b.HasOne("<%= projectName %>.Authorization.Roles.Role")
                         .WithMany("Permissions")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -1309,7 +1309,7 @@ namespace Plenumsoft.Migrations
 
             modelBuilder.Entity("Abp.Authorization.Users.UserPermissionSetting", b =>
                 {
-                    b.HasOne("Plenumsoft.Authorization.Users.User")
+                    b.HasOne("<%= projectName %>.Authorization.Users.User")
                         .WithMany("Permissions")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

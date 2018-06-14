@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
-using Plenumsoft.Roles.Dto;
+using <%= projectName %>.Roles.Dto;
 
-namespace Plenumsoft.Roles
+namespace <%= projectName %>.Roles
 {
     public interface IRoleAppService : IAsyncCrudAppService<RoleDto, int, PagedResultRequestDto, CreateRoleDto, RoleDto>
     {

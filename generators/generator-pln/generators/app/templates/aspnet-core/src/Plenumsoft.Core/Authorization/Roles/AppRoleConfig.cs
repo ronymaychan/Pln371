@@ -1,7 +1,7 @@
 ﻿using Abp.MultiTenancy;
 using Abp.Zero.Configuration;
 
-namespace Plenumsoft.Authorization.Roles
+namespace <%= projectName %>.Authorization.Roles
 {
     public static class AppRoleConfig
     {

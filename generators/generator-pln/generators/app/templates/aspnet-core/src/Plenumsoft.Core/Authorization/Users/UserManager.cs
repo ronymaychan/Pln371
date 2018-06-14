@@ -10,9 +10,9 @@ using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Abp.Organizations;
 using Abp.Runtime.Caching;
-using Plenumsoft.Authorization.Roles;
+using <%= projectName %>.Authorization.Roles;
 
-namespace Plenumsoft.Authorization.Users
+namespace <%= projectName %>.Authorization.Users
 {
     public class UserManager : AbpUserManager<Role, User>
     {

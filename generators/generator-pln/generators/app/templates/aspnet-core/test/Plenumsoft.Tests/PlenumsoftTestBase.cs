@@ -9,19 +9,19 @@ using Abp.Events.Bus.Entities;
 using Abp.MultiTenancy;
 using Abp.Runtime.Session;
 using Abp.TestBase;
-using Plenumsoft.Authorization.Users;
-using Plenumsoft.EntityFrameworkCore;
-using Plenumsoft.EntityFrameworkCore.Seed.Host;
-using Plenumsoft.EntityFrameworkCore.Seed.Tenants;
-using Plenumsoft.MultiTenancy;
+using <%= projectName %>.Authorization.Users;
+using <%= projectName %>.EntityFrameworkCore;
+using <%= projectName %>.EntityFrameworkCore.Seed.Host;
+using <%= projectName %>.EntityFrameworkCore.Seed.Tenants;
+using <%= projectName %>.MultiTenancy;
 
-namespace Plenumsoft.Tests
+namespace <%= projectName %>.Tests
 {
-    public abstract class PlenumsoftTestBase : AbpIntegratedTestBase<PlenumsoftTestModule>
+    public abstract class <%= projectName %>TestBase : AbpIntegratedTestBase<<%= projectName %>TestModule>
     {
-        protected PlenumsoftTestBase()
+        protected <%= projectName %>TestBase()
         {
-            void NormalizeDbContext(PlenumsoftDbContext context)
+            void NormalizeDbContext(<%= projectName %>DbContext context)
             {
                 context.EntityChangeEventHelper = NullEntityChangeEventHelper.Instance;
                 context.EventBus = NullEventBus.Instance;
@@ -57,31 +57,31 @@ namespace Plenumsoft.Tests
             return new DisposeAction(() => AbpSession.TenantId = previousTenantId);
         }
 
-        protected void UsingDbContext(Action<PlenumsoftDbContext> action)
+        protected void UsingDbContext(Action<<%= projectName %>DbContext> action)
         {
             UsingDbContext(AbpSession.TenantId, action);
         }
 
-        protected Task UsingDbContextAsync(Func<PlenumsoftDbContext, Task> action)
+        protected Task UsingDbContextAsync(Func<<%= projectName %>DbContext, Task> action)
         {
             return UsingDbContextAsync(AbpSession.TenantId, action);
         }
 
-        protected T UsingDbContext<T>(Func<PlenumsoftDbContext, T> func)
+        protected T UsingDbContext<T>(Func<<%= projectName %>DbContext, T> func)
         {
             return UsingDbContext(AbpSession.TenantId, func);
         }
 
-        protected Task<T> UsingDbContextAsync<T>(Func<PlenumsoftDbContext, Task<T>> func)
+        protected Task<T> UsingDbContextAsync<T>(Func<<%= projectName %>DbContext, Task<T>> func)
         {
             return UsingDbContextAsync(AbpSession.TenantId, func);
         }
 
-        protected void UsingDbContext(int? tenantId, Action<PlenumsoftDbContext> action)
+        protected void UsingDbContext(int? tenantId, Action<<%= projectName %>DbContext> action)
         {
             using (UsingTenantId(tenantId))
             {
-                using (var context = LocalIocManager.Resolve<PlenumsoftDbContext>())
+                using (var context = LocalIocManager.Resolve<<%= projectName %>DbContext>())
                 {
                     action(context);
                     context.SaveChanges();
@@ -89,11 +89,11 @@ namespace Plenumsoft.Tests
             }
         }
 
-        protected async Task UsingDbContextAsync(int? tenantId, Func<PlenumsoftDbContext, Task> action)
+        protected async Task UsingDbContextAsync(int? tenantId, Func<<%= projectName %>DbContext, Task> action)
         {
             using (UsingTenantId(tenantId))
             {
-                using (var context = LocalIocManager.Resolve<PlenumsoftDbContext>())
+                using (var context = LocalIocManager.Resolve<<%= projectName %>DbContext>())
                 {
                     await action(context);
                     await context.SaveChangesAsync();
@@ -101,13 +101,13 @@ namespace Plenumsoft.Tests
             }
         }
 
-        protected T UsingDbContext<T>(int? tenantId, Func<PlenumsoftDbContext, T> func)
+        protected T UsingDbContext<T>(int? tenantId, Func<<%= projectName %>DbContext, T> func)
         {
             T result;
 
             using (UsingTenantId(tenantId))
             {
-                using (var context = LocalIocManager.Resolve<PlenumsoftDbContext>())
+                using (var context = LocalIocManager.Resolve<<%= projectName %>DbContext>())
                 {
                     result = func(context);
                     context.SaveChanges();
@@ -117,13 +117,13 @@ namespace Plenumsoft.Tests
             return result;
         }
 
-        protected async Task<T> UsingDbContextAsync<T>(int? tenantId, Func<PlenumsoftDbContext, Task<T>> func)
+        protected async Task<T> UsingDbContextAsync<T>(int? tenantId, Func<<%= projectName %>DbContext, Task<T>> func)
         {
             T result;
 
             using (UsingTenantId(tenantId))
             {
-                using (var context = LocalIocManager.Resolve<PlenumsoftDbContext>())
+                using (var context = LocalIocManager.Resolve<<%= projectName %>DbContext>())
                 {
                     result = await func(context);
                     await context.SaveChangesAsync();

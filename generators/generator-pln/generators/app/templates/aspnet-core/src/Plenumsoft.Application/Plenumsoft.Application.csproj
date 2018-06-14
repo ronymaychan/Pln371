@@ -3,17 +3,17 @@
     <VersionPrefix>1.0.0.0</VersionPrefix>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
-    <AssemblyName>Plenumsoft.Application</AssemblyName>
-    <PackageId>Plenumsoft.Application</PackageId>
+    <AssemblyName><%= projectName %>.Application</AssemblyName>
+    <PackageId><%= projectName %>.Application</PackageId>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <RootNamespace>Plenumsoft</RootNamespace>
+    <RootNamespace><%= projectName %></RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <DefineConstants>FEATURE_SIGNALR_ASPNETCORE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Plenumsoft.Core\Plenumsoft.Core.csproj" />
+    <ProjectReference Include="..\<%= projectName %>.Core\<%= projectName %>.Core.csproj" />
   </ItemGroup>
 </Project>

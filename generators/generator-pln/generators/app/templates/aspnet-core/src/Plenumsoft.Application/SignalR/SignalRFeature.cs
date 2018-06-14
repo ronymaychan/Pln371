@@ -1,4 +1,4 @@
-﻿namespace Plenumsoft.SignalR
+﻿namespace <%= projectName %>.SignalR
 {
     public static class SignalRFeature
     {

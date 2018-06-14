@@ -4,13 +4,13 @@ using Abp.Authorization;
 using Abp.Dependency;
 using Abp.UI;
 
-namespace Plenumsoft.Authorization
+namespace <%= projectName %>.Authorization
 {
     public class AbpLoginResultTypeHelper : AbpServiceBase, ITransientDependency
     {
         public AbpLoginResultTypeHelper()
         {
-            LocalizationSourceName = PlenumsoftConsts.LocalizationSourceName;
+            LocalizationSourceName = <%= projectName %>Consts.LocalizationSourceName;
         }
 
         public Exception CreateExceptionForFailedLoginAttempt(AbpLoginResultType result, string usernameOrEmailAddress, string tenancyName)

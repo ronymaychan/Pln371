@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Plenumsoft.Cities.Dto
+namespace <%= projectName %>.Cities.Dto
 {
     public class CityInputDto : PagedResultRequestDto
     {

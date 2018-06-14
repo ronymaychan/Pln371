@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Abp.Authorization;
-using Plenumsoft.Authorization.Roles;
-using Plenumsoft.Authorization.Users;
-using Plenumsoft.MultiTenancy;
+using <%= projectName %>.Authorization.Roles;
+using <%= projectName %>.Authorization.Users;
+using <%= projectName %>.MultiTenancy;
 
-namespace Plenumsoft.Identity
+namespace <%= projectName %>.Identity
 {
     public class SecurityStampValidator : AbpSecurityStampValidator<Tenant, Role, User>
     {

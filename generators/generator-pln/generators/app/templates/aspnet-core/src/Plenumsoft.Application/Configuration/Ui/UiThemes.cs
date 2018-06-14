@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Plenumsoft.Configuration.Ui
+namespace <%= projectName %>.Configuration.Ui
 {
     public static class UiThemes
     {

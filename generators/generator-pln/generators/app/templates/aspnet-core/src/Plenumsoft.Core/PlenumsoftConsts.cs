@@ -1,8 +1,8 @@
-﻿namespace Plenumsoft
+﻿namespace <%= projectName %>
 {
-    public class PlenumsoftConsts
+    public class <%= projectName %>Consts
     {
-        public const string LocalizationSourceName = "Plenumsoft";
+        public const string LocalizationSourceName = "<%= projectName %>";
 
         public const string ConnectionStringName = "Default";
 

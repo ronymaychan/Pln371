@@ -1,4 +1,4 @@
-﻿namespace Plenumsoft.Authorization
+﻿namespace <%= projectName %>.Authorization
 {
     public static class PermissionNames
     {

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Plenumsoft.Migrations
+namespace <%= projectName %>.Migrations
 {
     public partial class addlocations : Migration
     {

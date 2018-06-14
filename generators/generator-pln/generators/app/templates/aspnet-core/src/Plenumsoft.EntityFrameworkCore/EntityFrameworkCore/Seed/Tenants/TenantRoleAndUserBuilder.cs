@@ -6,18 +6,18 @@ using Abp.Authorization;
 using Abp.Authorization.Roles;
 using Abp.Authorization.Users;
 using Abp.MultiTenancy;
-using Plenumsoft.Authorization;
-using Plenumsoft.Authorization.Roles;
-using Plenumsoft.Authorization.Users;
+using <%= projectName %>.Authorization;
+using <%= projectName %>.Authorization.Roles;
+using <%= projectName %>.Authorization.Users;
 
-namespace Plenumsoft.EntityFrameworkCore.Seed.Tenants
+namespace <%= projectName %>.EntityFrameworkCore.Seed.Tenants
 {
     public class TenantRoleAndUserBuilder
     {
-        private readonly PlenumsoftDbContext _context;
+        private readonly <%= projectName %>DbContext _context;
         private readonly int _tenantId;
 
-        public TenantRoleAndUserBuilder(PlenumsoftDbContext context, int tenantId)
+        public TenantRoleAndUserBuilder(<%= projectName %>DbContext context, int tenantId)
         {
             _context = context;
             _tenantId = tenantId;
@@ -48,7 +48,7 @@ namespace Plenumsoft.EntityFrameworkCore.Seed.Tenants
                 .ToList();
 
             var permissions = PermissionFinder
-                .GetAllPermissions(new PlenumsoftAuthorizationProvider())
+                .GetAllPermissions(new <%= projectName %>AuthorizationProvider())
                 .Where(p => p.MultiTenancySides.HasFlag(MultiTenancySides.Tenant) &&
                             !grantedPermissions.Contains(p.Name))
                 .ToList();

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Plenumsoft.Authentication.External
+namespace <%= projectName %>.Authentication.External
 {
     public interface IExternalAuthConfiguration
     {

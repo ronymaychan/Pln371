@@ -1,19 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Abp.Zero.EntityFrameworkCore;
-using Plenumsoft.Authorization.Roles;
-using Plenumsoft.Authorization.Users;
-using Plenumsoft.MultiTenancy;
+using <%= projectName %>.Authorization.Roles;
+using <%= projectName %>.Authorization.Users;
+using <%= projectName %>.MultiTenancy;
 
-namespace Plenumsoft.EntityFrameworkCore
+namespace <%= projectName %>.EntityFrameworkCore
 {
-    public class PlenumsoftDbContext : AbpZeroDbContext<Tenant, Role, User, PlenumsoftDbContext>
+    public class <%= projectName %>DbContext : AbpZeroDbContext<Tenant, Role, User, <%= projectName %>DbContext>
     {
         /* Define a DbSet for each entity of the application */
         public DbSet<Domain.Country> Countries { get; set; }
         public DbSet<Domain.State> States { get; set; }
         public DbSet<Domain.City> Cities { get; set; }
 
-        public PlenumsoftDbContext(DbContextOptions<PlenumsoftDbContext> options)
+        public <%= projectName %>DbContext(DbContextOptions<<%= projectName %>DbContext> options)
             : base(options)
         {
         }

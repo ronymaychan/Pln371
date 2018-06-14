@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Plenumsoft.Configuration.Dto;
+using <%= projectName %>.Configuration.Dto;
 
-namespace Plenumsoft.Configuration
+namespace <%= projectName %>.Configuration
 {
     public interface IConfigurationAppService
     {

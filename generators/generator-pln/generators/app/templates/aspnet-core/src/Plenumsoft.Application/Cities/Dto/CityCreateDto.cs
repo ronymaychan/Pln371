@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Plenumsoft.Cities.Dto
+namespace <%= projectName %>.Cities.Dto
 {
     public class CityCreateDto : Abp.Application.Services.Dto.EntityDto<string>
     {

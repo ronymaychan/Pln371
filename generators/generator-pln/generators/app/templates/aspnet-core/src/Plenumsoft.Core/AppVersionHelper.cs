@@ -2,7 +2,7 @@
 using System.IO;
 using Abp.Reflection.Extensions;
 
-namespace Plenumsoft
+namespace <%= projectName %>
 {
     /// <summary>
     /// Central point for application version.

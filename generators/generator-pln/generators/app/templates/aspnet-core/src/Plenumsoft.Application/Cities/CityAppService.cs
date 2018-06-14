@@ -1,14 +1,14 @@
 ﻿using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Domain.Repositories;
-using Plenumsoft.Cities.Dto;
-using Plenumsoft.Domain;
+using <%= projectName %>.Cities.Dto;
+using <%= projectName %>.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Plenumsoft.Base.Cities
+namespace <%= projectName %>.Base.Cities
 {
     public class CityAppService : CrudAppService<City, CityDto, string, CityInputDto, CityCreateDto>, ICityAppService
     {

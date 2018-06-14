@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Plenumsoft.Users.Dto
+namespace <%= projectName %>.Users.Dto
 {
     public class ChangeUserLanguageDto
     {

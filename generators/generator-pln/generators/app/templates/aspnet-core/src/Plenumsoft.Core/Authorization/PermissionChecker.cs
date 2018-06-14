@@ -1,8 +1,8 @@
 ﻿using Abp.Authorization;
-using Plenumsoft.Authorization.Roles;
-using Plenumsoft.Authorization.Users;
+using <%= projectName %>.Authorization.Roles;
+using <%= projectName %>.Authorization.Users;
 
-namespace Plenumsoft.Authorization
+namespace <%= projectName %>.Authorization
 {
     public class PermissionChecker : PermissionChecker<Role, User>
     {

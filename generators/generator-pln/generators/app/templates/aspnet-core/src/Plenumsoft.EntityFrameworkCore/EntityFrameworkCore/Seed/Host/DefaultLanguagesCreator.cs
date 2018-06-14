@@ -3,13 +3,13 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Abp.Localization;
 
-namespace Plenumsoft.EntityFrameworkCore.Seed.Host
+namespace <%= projectName %>.EntityFrameworkCore.Seed.Host
 {
     public class DefaultLanguagesCreator
     {
         public static List<ApplicationLanguage> InitialLanguages => GetInitialLanguages();
 
-        private readonly PlenumsoftDbContext _context;
+        private readonly <%= projectName %>DbContext _context;
 
         private static List<ApplicationLanguage> GetInitialLanguages()
         {
@@ -30,7 +30,7 @@ namespace Plenumsoft.EntityFrameworkCore.Seed.Host
             };
         }
 
-        public DefaultLanguagesCreator(PlenumsoftDbContext context)
+        public DefaultLanguagesCreator(<%= projectName %>DbContext context)
         {
             _context = context;
         }

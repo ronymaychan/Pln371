@@ -2,9 +2,9 @@
 using Abp.Localization;
 using Abp.MultiTenancy;
 
-namespace Plenumsoft.Authorization
+namespace <%= projectName %>.Authorization
 {
-    public class PlenumsoftAuthorizationProvider : AuthorizationProvider
+    public class <%= projectName %>AuthorizationProvider : AuthorizationProvider
     {
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
@@ -19,7 +19,7 @@ namespace Plenumsoft.Authorization
 
         private static ILocalizableString L(string name)
         {
-            return new LocalizableString(name, PlenumsoftConsts.LocalizationSourceName);
+            return new LocalizableString(name, <%= projectName %>Consts.LocalizationSourceName);
         }
     }
 }

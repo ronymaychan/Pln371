@@ -2,18 +2,18 @@
 using Microsoft.Extensions.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
-using Plenumsoft.Configuration;
+using <%= projectName %>.Configuration;
 
-namespace Plenumsoft.Web.Host.Startup
+namespace <%= projectName %>.Web.Host.Startup
 {
     [DependsOn(
-       typeof(PlenumsoftWebCoreModule))]
-    public class PlenumsoftWebHostModule: AbpModule
+       typeof(<%= projectName %>WebCoreModule))]
+    public class <%= projectName %>WebHostModule: AbpModule
     {
         private readonly IHostingEnvironment _env;
         private readonly IConfigurationRoot _appConfiguration;
 
-        public PlenumsoftWebHostModule(IHostingEnvironment env)
+        public <%= projectName %>WebHostModule(IHostingEnvironment env)
         {
             _env = env;
             _appConfiguration = env.GetAppConfiguration();
@@ -21,7 +21,7 @@ namespace Plenumsoft.Web.Host.Startup
 
         public override void Initialize()
         {
-            IocManager.RegisterAssemblyByConvention(typeof(PlenumsoftWebHostModule).GetAssembly());
+            IocManager.RegisterAssemblyByConvention(typeof(<%= projectName %>WebHostModule).GetAssembly());
         }
     }
 }

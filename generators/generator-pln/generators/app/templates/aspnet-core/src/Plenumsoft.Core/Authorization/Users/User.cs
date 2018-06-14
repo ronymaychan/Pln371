@@ -2,7 +2,7 @@
 using Abp.Authorization.Users;
 using Abp.Extensions;
 
-namespace Plenumsoft.Authorization.Users
+namespace <%= projectName %>.Authorization.Users
 {
     public class User : AbpUser<User>
     {

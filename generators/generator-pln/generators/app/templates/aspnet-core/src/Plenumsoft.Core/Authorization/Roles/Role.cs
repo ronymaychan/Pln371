@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Abp.Authorization.Roles;
-using Plenumsoft.Authorization.Users;
+using <%= projectName %>.Authorization.Users;
 
-namespace Plenumsoft.Authorization.Roles
+namespace <%= projectName %>.Authorization.Roles
 {
     public class Role : AbpRole<User>
     {

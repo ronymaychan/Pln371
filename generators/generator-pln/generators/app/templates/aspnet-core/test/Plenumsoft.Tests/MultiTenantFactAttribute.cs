@@ -1,12 +1,12 @@
 ﻿using Xunit;
 
-namespace Plenumsoft.Tests
+namespace <%= projectName %>.Tests
 {
     public sealed class MultiTenantFactAttribute : FactAttribute
     {
         public MultiTenantFactAttribute()
         {
-            if (!PlenumsoftConsts.MultiTenancyEnabled)
+            if (!<%= projectName %>Consts.MultiTenancyEnabled)
             {
                 Skip = "MultiTenancy is disabled.";
             }

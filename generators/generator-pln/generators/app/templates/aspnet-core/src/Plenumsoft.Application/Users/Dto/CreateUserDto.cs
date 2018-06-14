@@ -3,9 +3,9 @@ using Abp.Auditing;
 using Abp.Authorization.Users;
 using Abp.AutoMapper;
 using Abp.Runtime.Validation;
-using Plenumsoft.Authorization.Users;
+using <%= projectName %>.Authorization.Users;
 
-namespace Plenumsoft.Users.Dto
+namespace <%= projectName %>.Users.Dto
 {
     [AutoMapTo(typeof(User))]
     public class CreateUserDto : IShouldNormalize

@@ -4,7 +4,7 @@ using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Abp.Authorization;
 
-namespace Plenumsoft.Web.Host.Startup
+namespace <%= projectName %>.Web.Host.Startup
 {
     public class SecurityRequirementsOperationFilter : IOperationFilter
     {

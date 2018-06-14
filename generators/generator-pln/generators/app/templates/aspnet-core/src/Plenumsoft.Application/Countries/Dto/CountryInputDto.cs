@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Plenumsoft.Countries.Dto
+namespace <%= projectName %>.Countries.Dto
 {
     public class CountryInputDto : PagedResultRequestDto
     {

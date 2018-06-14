@@ -2,9 +2,9 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
-    <AssemblyName>Plenumsoft.Migrator</AssemblyName>
+    <AssemblyName><%= projectName %>.Migrator</AssemblyName>
     <OutputType>Exe</OutputType>
-    <PackageId>Plenumsoft.Migrator</PackageId>
+    <PackageId><%= projectName %>.Migrator</PackageId>
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
@@ -18,7 +18,7 @@
     <PackageReference Include="Abp.Castle.Log4Net" Version="3.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Plenumsoft.Core\Plenumsoft.Core.csproj" />
-    <ProjectReference Include="..\Plenumsoft.EntityFrameworkCore\Plenumsoft.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\<%= projectName %>.Core\<%= projectName %>.Core.csproj" />
+    <ProjectReference Include="..\<%= projectName %>.EntityFrameworkCore\<%= projectName %>.EntityFrameworkCore.csproj" />
   </ItemGroup>
 </Project>

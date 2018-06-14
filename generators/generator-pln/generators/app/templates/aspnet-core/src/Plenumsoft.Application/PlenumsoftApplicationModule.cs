@@ -1,23 +1,23 @@
 ﻿using Abp.AutoMapper;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
-using Plenumsoft.Authorization;
+using <%= projectName %>.Authorization;
 
-namespace Plenumsoft
+namespace <%= projectName %>
 {
     [DependsOn(
-        typeof(PlenumsoftCoreModule), 
+        typeof(<%= projectName %>CoreModule), 
         typeof(AbpAutoMapperModule))]
-    public class PlenumsoftApplicationModule : AbpModule
+    public class <%= projectName %>ApplicationModule : AbpModule
     {
         public override void PreInitialize()
         {
-            Configuration.Authorization.Providers.Add<PlenumsoftAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<<%= projectName %>AuthorizationProvider>();
         }
 
         public override void Initialize()
         {
-            var thisAssembly = typeof(PlenumsoftApplicationModule).GetAssembly();
+            var thisAssembly = typeof(<%= projectName %>ApplicationModule).GetAssembly();
 
             IocManager.RegisterAssemblyByConvention(thisAssembly);
 

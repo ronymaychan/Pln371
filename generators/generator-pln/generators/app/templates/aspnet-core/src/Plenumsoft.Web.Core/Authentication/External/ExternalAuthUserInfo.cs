@@ -1,4 +1,4 @@
-﻿namespace Plenumsoft.Authentication.External
+﻿namespace <%= projectName %>.Authentication.External
 {
     public class ExternalAuthUserInfo
     {

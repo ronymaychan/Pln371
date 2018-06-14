@@ -12,21 +12,21 @@ using Swashbuckle.AspNetCore.Swagger;
 using Abp.AspNetCore;
 using Abp.Castle.Logging.Log4Net;
 using Abp.Extensions;
-using Plenumsoft.Authentication.JwtBearer;
-using Plenumsoft.Configuration;
-using Plenumsoft.Identity;
+using <%= projectName %>.Authentication.JwtBearer;
+using <%= projectName %>.Configuration;
+using <%= projectName %>.Identity;
 
 #if FEATURE_SIGNALR
 using Microsoft.AspNet.SignalR;
 using Microsoft.Owin.Cors;
 using Owin;
 using Abp.Owin;
-using Plenumsoft.Owin;
+using <%= projectName %>.Owin;
 #elif FEATURE_SIGNALR_ASPNETCORE
 using Abp.AspNetCore.SignalR.Hubs;
 #endif
 
-namespace Plenumsoft.Web.Host.Startup
+namespace <%= projectName %>.Web.Host.Startup
 {
     public class Startup
     {
@@ -73,7 +73,7 @@ namespace Plenumsoft.Web.Host.Startup
             // Swagger - Enable this line and the related lines in Configure method to enable swagger UI
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new Info { Title = "Plenumsoft API", Version = "v1" });
+                options.SwaggerDoc("v1", new Info { Title = "<%= projectName %> API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
 
                 // Define the BearerAuth scheme that's in use
@@ -89,7 +89,7 @@ namespace Plenumsoft.Web.Host.Startup
             });
 
             // Configure Abp and Dependency Injection
-            return services.AddAbp<PlenumsoftWebHostModule>(
+            return services.AddAbp<<%= projectName %>WebHostModule>(
                 // Configure Log4Net logging
                 options => options.IocManager.IocContainer.AddFacility<LoggingFacility>(
                     f => f.UseAbpLog4Net().WithConfig("log4net.config")
@@ -135,16 +135,16 @@ namespace Plenumsoft.Web.Host.Startup
             // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "Plenumsoft API V1");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "<%= projectName %> API V1");
                 options.IndexStream = () => Assembly.GetExecutingAssembly()
-                    .GetManifestResourceStream("Plenumsoft.Web.Host.wwwroot.swagger.ui.index.html");
+                    .GetManifestResourceStream("<%= projectName %>.Web.Host.wwwroot.swagger.ui.index.html");
             }); // URL: /swagger
         }
 
 #if FEATURE_SIGNALR
         private static void ConfigureOwinServices(IAppBuilder app)
         {
-            app.Properties["host.AppName"] = "Plenumsoft";
+            app.Properties["host.AppName"] = "<%= projectName %>";
 
             app.UseAbp();
             

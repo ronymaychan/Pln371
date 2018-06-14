@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Plenumsoft.Migrations
+namespace <%= projectName %>.Migrations
 {
     public partial class Upgraded_To_Abp_2_1_0 : Migration
     {

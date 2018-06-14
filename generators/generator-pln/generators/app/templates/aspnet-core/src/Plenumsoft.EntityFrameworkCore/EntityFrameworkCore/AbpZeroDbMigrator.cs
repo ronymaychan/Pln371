@@ -3,9 +3,9 @@ using Abp.EntityFrameworkCore;
 using Abp.MultiTenancy;
 using Abp.Zero.EntityFrameworkCore;
 
-namespace Plenumsoft.EntityFrameworkCore
+namespace <%= projectName %>.EntityFrameworkCore
 {
-    public class AbpZeroDbMigrator : AbpZeroDbMigrator<PlenumsoftDbContext>
+    public class AbpZeroDbMigrator : AbpZeroDbMigrator<<%= projectName %>DbContext>
     {
         public AbpZeroDbMigrator(
             IUnitOfWorkManager unitOfWorkManager,

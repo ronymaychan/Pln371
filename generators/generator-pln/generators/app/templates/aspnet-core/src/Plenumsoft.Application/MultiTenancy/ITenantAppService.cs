@@ -1,8 +1,8 @@
 ﻿using Abp.Application.Services;
 using Abp.Application.Services.Dto;
-using Plenumsoft.MultiTenancy.Dto;
+using <%= projectName %>.MultiTenancy.Dto;
 
-namespace Plenumsoft.MultiTenancy
+namespace <%= projectName %>.MultiTenancy
 {
     public interface ITenantAppService : IAsyncCrudAppService<TenantDto, int, PagedResultRequestDto, CreateTenantDto, TenantDto>
     {

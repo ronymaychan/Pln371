@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Plenumsoft.Migrations
+namespace <%= projectName %>.Migrations
 {
     public partial class Upgraded_To_Abp_v3_5_0 : Migration
     {

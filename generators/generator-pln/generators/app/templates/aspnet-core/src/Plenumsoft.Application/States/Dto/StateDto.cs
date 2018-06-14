@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 
-namespace Plenumsoft.States.Dto
+namespace <%= projectName %>.States.Dto
 {
     public class StateDto : EntityDto<string>
     {

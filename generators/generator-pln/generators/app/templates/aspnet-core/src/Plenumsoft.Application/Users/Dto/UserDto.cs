@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
 using Abp.Authorization.Users;
 using Abp.AutoMapper;
-using Plenumsoft.Authorization.Users;
+using <%= projectName %>.Authorization.Users;
 
-namespace Plenumsoft.Users.Dto
+namespace <%= projectName %>.Users.Dto
 {
     [AutoMapFrom(typeof(User))]
     public class UserDto : EntityDto<long>

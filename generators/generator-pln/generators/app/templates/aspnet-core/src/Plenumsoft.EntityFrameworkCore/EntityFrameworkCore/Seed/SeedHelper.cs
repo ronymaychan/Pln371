@@ -5,19 +5,19 @@ using Abp.Dependency;
 using Abp.Domain.Uow;
 using Abp.EntityFrameworkCore.Uow;
 using Abp.MultiTenancy;
-using Plenumsoft.EntityFrameworkCore.Seed.Host;
-using Plenumsoft.EntityFrameworkCore.Seed.Tenants;
+using <%= projectName %>.EntityFrameworkCore.Seed.Host;
+using <%= projectName %>.EntityFrameworkCore.Seed.Tenants;
 
-namespace Plenumsoft.EntityFrameworkCore.Seed
+namespace <%= projectName %>.EntityFrameworkCore.Seed
 {
     public static class SeedHelper
     {
         public static void SeedHostDb(IIocResolver iocResolver)
         {
-            WithDbContext<PlenumsoftDbContext>(iocResolver, SeedHostDb);
+            WithDbContext<<%= projectName %>DbContext>(iocResolver, SeedHostDb);
         }
 
-        public static void SeedHostDb(PlenumsoftDbContext context)
+        public static void SeedHostDb(<%= projectName %>DbContext context)
         {
             context.SuppressAutoSetTenantId = true;
 

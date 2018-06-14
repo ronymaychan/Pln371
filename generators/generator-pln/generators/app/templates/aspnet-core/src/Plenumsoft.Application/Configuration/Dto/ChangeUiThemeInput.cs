@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Plenumsoft.Configuration.Dto
+namespace <%= projectName %>.Configuration.Dto
 {
     public class ChangeUiThemeInput
     {

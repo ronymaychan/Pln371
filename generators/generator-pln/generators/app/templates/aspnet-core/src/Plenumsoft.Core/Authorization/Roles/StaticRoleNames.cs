@@ -1,4 +1,4 @@
-namespace Plenumsoft.Authorization.Roles
+namespace <%= projectName %>.Authorization.Roles
 {
     public static class StaticRoleNames
     {

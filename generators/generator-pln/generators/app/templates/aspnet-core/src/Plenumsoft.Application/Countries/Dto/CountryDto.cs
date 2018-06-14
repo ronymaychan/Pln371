@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 
-namespace Plenumsoft.Countries.Dto
+namespace <%= projectName %>.Countries.Dto
 {
     public class CountryDto : EntityDto<string>
     {

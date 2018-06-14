@@ -6,13 +6,13 @@ using Abp.Configuration;
 using Abp.IdentityFramework;
 using Abp.Net.Mail.Smtp;
 using Abp.Zero.Configuration;
-using Plenumsoft.Authorization.Accounts.Dto;
-using Plenumsoft.Authorization.Users;
-using Plenumsoft.Web;
+using <%= projectName %>.Authorization.Accounts.Dto;
+using <%= projectName %>.Authorization.Users;
+using <%= projectName %>.Web;
 
-namespace Plenumsoft.Authorization.Accounts
+namespace <%= projectName %>.Authorization.Accounts
 {
-    public class AccountAppService : PlenumsoftAppServiceBase, IAccountAppService
+    public class AccountAppService : <%= projectName %>AppServiceBase, IAccountAppService
     {
         private readonly UserRegistrationManager _userRegistrationManager;
         private readonly UserManager _userManager;
@@ -28,7 +28,7 @@ namespace Plenumsoft.Authorization.Accounts
             _userManager = userManager;
             _smtpEmailSender = smtpEmailSender;
 
-            LocalizationSourceName = PlenumsoftConsts.LocalizationSourceName;
+            LocalizationSourceName = <%= projectName %>Consts.LocalizationSourceName;
         }
 
         /*[AbpAllowAnonymous]

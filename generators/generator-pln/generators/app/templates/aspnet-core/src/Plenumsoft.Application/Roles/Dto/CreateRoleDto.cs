@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Abp.Authorization.Roles;
 using Abp.AutoMapper;
-using Plenumsoft.Authorization.Roles;
+using <%= projectName %>.Authorization.Roles;
 
-namespace Plenumsoft.Roles.Dto
+namespace <%= projectName %>.Roles.Dto
 {
     [AutoMapTo(typeof(Role))]
     public class CreateRoleDto

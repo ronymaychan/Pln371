@@ -1,10 +1,10 @@
 ﻿using Abp.Application.Services;
-using Plenumsoft.Cities.Dto;
+using <%= projectName %>.Cities.Dto;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Plenumsoft.Base.Cities
+namespace <%= projectName %>.Base.Cities
 {
     public interface ICityAppService : ICrudAppService<CityDto, string, CityInputDto, CityCreateDto>, IApplicationService
     {

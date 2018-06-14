@@ -9,13 +9,13 @@ using Abp.Extensions;
 using Abp.IdentityFramework;
 using Abp.MultiTenancy;
 using Abp.Runtime.Security;
-using Plenumsoft.Authorization;
-using Plenumsoft.Authorization.Roles;
-using Plenumsoft.Authorization.Users;
-using Plenumsoft.Editions;
-using Plenumsoft.MultiTenancy.Dto;
+using <%= projectName %>.Authorization;
+using <%= projectName %>.Authorization.Roles;
+using <%= projectName %>.Authorization.Users;
+using <%= projectName %>.Editions;
+using <%= projectName %>.MultiTenancy.Dto;
 
-namespace Plenumsoft.MultiTenancy
+namespace <%= projectName %>.MultiTenancy
 {
     [AbpAuthorize(PermissionNames.Pages_Tenants)]
     public class TenantAppService : AsyncCrudAppService<Tenant, TenantDto, int, PagedResultRequestDto, CreateTenantDto, TenantDto>, ITenantAppService

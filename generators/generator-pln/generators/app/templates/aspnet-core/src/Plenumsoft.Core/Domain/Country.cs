@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Plenumsoft.Domain
+namespace <%= projectName %>.Domain
 {
     public class Country : Abp.Domain.Entities.Entity<string>, Abp.Domain.Entities.IPassivable
     {

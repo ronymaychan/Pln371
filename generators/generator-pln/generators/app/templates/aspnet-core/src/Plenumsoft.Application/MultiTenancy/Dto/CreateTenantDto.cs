@@ -3,7 +3,7 @@ using Abp.Authorization.Users;
 using Abp.AutoMapper;
 using Abp.MultiTenancy;
 
-namespace Plenumsoft.MultiTenancy.Dto
+namespace <%= projectName %>.MultiTenancy.Dto
 {
     [AutoMapTo(typeof(Tenant))]
     public class CreateTenantDto

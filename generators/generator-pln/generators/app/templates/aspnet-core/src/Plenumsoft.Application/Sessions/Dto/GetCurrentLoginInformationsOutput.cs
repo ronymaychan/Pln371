@@ -1,4 +1,4 @@
-﻿namespace Plenumsoft.Sessions.Dto
+﻿namespace <%= projectName %>.Sessions.Dto
 {
     public class GetCurrentLoginInformationsOutput
     {

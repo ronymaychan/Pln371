@@ -8,9 +8,9 @@ using Abp.AspNetCore.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Abp.Zero.Configuration;
-using Plenumsoft.Authentication.JwtBearer;
-using Plenumsoft.Configuration;
-using Plenumsoft.EntityFrameworkCore;
+using <%= projectName %>.Authentication.JwtBearer;
+using <%= projectName %>.Configuration;
+using <%= projectName %>.EntityFrameworkCore;
 
 #if FEATURE_SIGNALR
 using Abp.Web.SignalR;
@@ -18,11 +18,11 @@ using Abp.Web.SignalR;
 using Abp.AspNetCore.SignalR;
 #endif
 
-namespace Plenumsoft
+namespace <%= projectName %>
 {
     [DependsOn(
-         typeof(PlenumsoftApplicationModule),
-         typeof(PlenumsoftEntityFrameworkModule),
+         typeof(<%= projectName %>ApplicationModule),
+         typeof(<%= projectName %>EntityFrameworkModule),
          typeof(AbpAspNetCoreModule)
 #if FEATURE_SIGNALR 
         ,typeof(AbpWebSignalRModule)
@@ -30,12 +30,12 @@ namespace Plenumsoft
         ,typeof(AbpAspNetCoreSignalRModule)
 #endif
      )]
-    public class PlenumsoftWebCoreModule : AbpModule
+    public class <%= projectName %>WebCoreModule : AbpModule
     {
         private readonly IHostingEnvironment _env;
         private readonly IConfigurationRoot _appConfiguration;
 
-        public PlenumsoftWebCoreModule(IHostingEnvironment env)
+        public <%= projectName %>WebCoreModule(IHostingEnvironment env)
         {
             _env = env;
             _appConfiguration = env.GetAppConfiguration();
@@ -44,7 +44,7 @@ namespace Plenumsoft
         public override void PreInitialize()
         {
             Configuration.DefaultNameOrConnectionString = _appConfiguration.GetConnectionString(
-                PlenumsoftConsts.ConnectionStringName
+                <%= projectName %>Consts.ConnectionStringName
             );
 
             // Use database for language management
@@ -52,7 +52,7 @@ namespace Plenumsoft
 
             Configuration.Modules.AbpAspNetCore()
                  .CreateControllersForAppServices(
-                     typeof(PlenumsoftApplicationModule).GetAssembly()
+                     typeof(<%= projectName %>ApplicationModule).GetAssembly()
                  );
 
             ConfigureTokenAuth();
@@ -72,7 +72,7 @@ namespace Plenumsoft
 
         public override void Initialize()
         {
-            IocManager.RegisterAssemblyByConvention(typeof(PlenumsoftWebCoreModule).GetAssembly());
+            IocManager.RegisterAssemblyByConvention(typeof(<%= projectName %>WebCoreModule).GetAssembly());
         }
     }
 }

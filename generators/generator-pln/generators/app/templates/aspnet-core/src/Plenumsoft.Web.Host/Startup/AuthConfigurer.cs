@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Abp.Runtime.Security;
 
-namespace Plenumsoft.Web.Host.Startup
+namespace <%= projectName %>.Web.Host.Startup
 {
     public static class AuthConfigurer
     {

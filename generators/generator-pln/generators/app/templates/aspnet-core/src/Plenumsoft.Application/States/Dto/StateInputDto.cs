@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Plenumsoft.States.Dto
+namespace <%= projectName %>.States.Dto
 {
     public class StateInputDto : PagedResultRequestDto
     {

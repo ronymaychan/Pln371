@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Abp.Dependency;
 
-namespace Plenumsoft.Authentication.External
+namespace <%= projectName %>.Authentication.External
 {
     public class ExternalAuthManager : IExternalAuthManager, ITransientDependency
     {

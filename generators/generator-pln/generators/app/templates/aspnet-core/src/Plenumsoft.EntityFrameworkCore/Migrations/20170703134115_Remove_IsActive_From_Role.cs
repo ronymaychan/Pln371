@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Plenumsoft.Migrations
+namespace <%= projectName %>.Migrations
 {
     public partial class Remove_IsActive_From_Role : Migration
     {

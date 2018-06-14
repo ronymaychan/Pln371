@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Abp.Authorization;
 using Abp.Authorization.Roles;
-using Plenumsoft.Authorization.Roles;
+using <%= projectName %>.Authorization.Roles;
 
-namespace Plenumsoft.Roles.Dto
+namespace <%= projectName %>.Roles.Dto
 {
     public class RoleMapProfile : Profile
     {

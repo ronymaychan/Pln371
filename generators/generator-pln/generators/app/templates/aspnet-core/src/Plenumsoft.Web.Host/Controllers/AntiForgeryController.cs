@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Antiforgery;
-using Plenumsoft.Controllers;
+using <%= projectName %>.Controllers;
 
-namespace Plenumsoft.Web.Host.Controllers
+namespace <%= projectName %>.Web.Host.Controllers
 {
-    public class AntiForgeryController : PlenumsoftControllerBase
+    public class AntiForgeryController : <%= projectName %>ControllerBase
     {
         private readonly IAntiforgery _antiforgery;
 

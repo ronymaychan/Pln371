@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Plenumsoft.Authentication.External
+namespace <%= projectName %>.Authentication.External
 {
     public class ExternalLoginProviderInfo
     {

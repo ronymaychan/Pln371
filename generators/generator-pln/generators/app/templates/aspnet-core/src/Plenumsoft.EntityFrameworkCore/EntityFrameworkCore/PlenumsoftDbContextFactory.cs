@@ -1,22 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using Plenumsoft.Configuration;
-using Plenumsoft.Web;
+using <%= projectName %>.Configuration;
+using <%= projectName %>.Web;
 
-namespace Plenumsoft.EntityFrameworkCore
+namespace <%= projectName %>.EntityFrameworkCore
 {
     /* This class is needed to run "dotnet ef ..." commands from command line on development. Not used anywhere else */
-    public class PlenumsoftDbContextFactory : IDesignTimeDbContextFactory<PlenumsoftDbContext>
+    public class <%= projectName %>DbContextFactory : IDesignTimeDbContextFactory<<%= projectName %>DbContext>
     {
-        public PlenumsoftDbContext CreateDbContext(string[] args)
+        public <%= projectName %>DbContext CreateDbContext(string[] args)
         {
-            var builder = new DbContextOptionsBuilder<PlenumsoftDbContext>();
+            var builder = new DbContextOptionsBuilder<<%= projectName %>DbContext>();
             var configuration = AppConfigurations.Get(WebContentDirectoryFinder.CalculateContentRootFolder());
 
-            PlenumsoftDbContextConfigurer.Configure(builder, configuration.GetConnectionString(PlenumsoftConsts.ConnectionStringName));
+            <%= projectName %>DbContextConfigurer.Configure(builder, configuration.GetConnectionString(<%= projectName %>Consts.ConnectionStringName));
 
-            return new PlenumsoftDbContext(builder.Options);
+            return new <%= projectName %>DbContext(builder.Options);
         }
     }
 }

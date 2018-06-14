@@ -1,16 +1,16 @@
 ﻿using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Abp.MultiTenancy;
-using Plenumsoft.Editions;
-using Plenumsoft.MultiTenancy;
+using <%= projectName %>.Editions;
+using <%= projectName %>.MultiTenancy;
 
-namespace Plenumsoft.EntityFrameworkCore.Seed.Tenants
+namespace <%= projectName %>.EntityFrameworkCore.Seed.Tenants
 {
     public class DefaultTenantBuilder
     {
-        private readonly PlenumsoftDbContext _context;
+        private readonly <%= projectName %>DbContext _context;
 
-        public DefaultTenantBuilder(PlenumsoftDbContext context)
+        public DefaultTenantBuilder(<%= projectName %>DbContext context)
         {
             _context = context;
         }

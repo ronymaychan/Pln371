@@ -1,4 +1,4 @@
-﻿namespace Plenumsoft.Configuration
+﻿namespace <%= projectName %>.Configuration
 {
     public static class AppSettingNames
     {

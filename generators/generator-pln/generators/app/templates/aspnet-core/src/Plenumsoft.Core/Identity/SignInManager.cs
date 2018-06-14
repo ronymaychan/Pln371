@@ -6,11 +6,11 @@ using Microsoft.Extensions.Options;
 using Abp.Authorization;
 using Abp.Configuration;
 using Abp.Domain.Uow;
-using Plenumsoft.Authorization.Roles;
-using Plenumsoft.Authorization.Users;
-using Plenumsoft.MultiTenancy;
+using <%= projectName %>.Authorization.Roles;
+using <%= projectName %>.Authorization.Users;
+using <%= projectName %>.MultiTenancy;
 
-namespace Plenumsoft.Identity
+namespace <%= projectName %>.Identity
 {
     public class SignInManager : AbpSignInManager<Tenant, Role, User>
     {

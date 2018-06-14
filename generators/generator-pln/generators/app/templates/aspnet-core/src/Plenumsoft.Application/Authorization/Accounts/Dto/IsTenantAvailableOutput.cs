@@ -1,4 +1,4 @@
-namespace Plenumsoft.Authorization.Accounts.Dto
+namespace <%= projectName %>.Authorization.Accounts.Dto
 {
     public class IsTenantAvailableOutput
     {

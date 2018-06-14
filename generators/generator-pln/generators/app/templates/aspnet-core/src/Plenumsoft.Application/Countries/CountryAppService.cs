@@ -2,16 +2,16 @@
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
-using Plenumsoft.Authorization;
-using Plenumsoft.Domain;
+using <%= projectName %>.Authorization;
+using <%= projectName %>.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Plenumsoft.Countries.Dto;
+using <%= projectName %>.Countries.Dto;
 
-namespace Plenumsoft.Base.Countries
+namespace <%= projectName %>.Base.Countries
 {
     [AbpAuthorize(PermissionNames.Pages_Countries)]
     public class CountryAppService : CrudAppService<Country, CountryDto, string, CountryInputDto>, ICountryAppService

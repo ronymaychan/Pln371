@@ -3,10 +3,10 @@ using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Abp.MultiTenancy;
 using Abp.Runtime.Caching;
-using Plenumsoft.Authorization.Users;
-using Plenumsoft.MultiTenancy;
+using <%= projectName %>.Authorization.Users;
+using <%= projectName %>.MultiTenancy;
 
-namespace Plenumsoft.Features
+namespace <%= projectName %>.Features
 {
     public class FeatureValueStore : AbpFeatureValueStore<Tenant, User>
     {

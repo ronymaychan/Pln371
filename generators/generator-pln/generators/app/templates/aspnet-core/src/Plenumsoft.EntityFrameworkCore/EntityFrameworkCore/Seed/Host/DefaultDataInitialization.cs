@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Plenumsoft.EntityFrameworkCore.Seed.Host
+namespace <%= projectName %>.EntityFrameworkCore.Seed.Host
 {
     public class DefaultDataInitialization
     {
-        private readonly PlenumsoftDbContext _context;
+        private readonly <%= projectName %>DbContext _context;
 
-        public DefaultDataInitialization(PlenumsoftDbContext context)
+        public DefaultDataInitialization(<%= projectName %>DbContext context)
         {
             _context = context;
         }

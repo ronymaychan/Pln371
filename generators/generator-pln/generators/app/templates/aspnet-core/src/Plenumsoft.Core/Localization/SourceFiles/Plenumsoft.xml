@@ -3,7 +3,7 @@
   <texts>
     <text name="HomePage" value="Home page" />
     <text name="About" value="About" />
-    <text name="WellcomeMessage" value="Welcome to Plenumsoft!" />
+    <text name="WellcomeMessage" value="Welcome to <%= projectName %>!" />
     <text name="FormIsNotValidMessage" value="Form is not valid. Please check and fix errors." />
     <text name="TenantNameCanNotBeEmpty" value="Tenant name can not be empty" />
     <text name="InvalidUserNameOrPassword" value="Invalid user name or password" />
@@ -105,6 +105,6 @@
     <text name="ResetPasswordDescription">Please enter your new password.</text>
     <text name="ResetPasswordSuccess">Your password has been changed, please login.</text>
     <text name="ResetPasswordFail">Please be sure you entered this page by clicking the link sent to your email. If this not solves the problem, you can re-try to request a new password reset link.</text>
-    <text name="AppName">Plenumsoft</text>
+    <text name="AppName"><%= projectName %></text>
   </texts>
 </localizationDictionary>

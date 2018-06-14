@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace Plenumsoft.Authorization.Accounts.Dto
+namespace <%= projectName %>.Authorization.Accounts.Dto
 {
     public class ForgotPasswordDto
     {

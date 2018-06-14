@@ -1,4 +1,4 @@
-﻿namespace Plenumsoft.Models.TokenAuth
+﻿namespace <%= projectName %>.Models.TokenAuth
 {
     public class AuthenticateResultModel
     {

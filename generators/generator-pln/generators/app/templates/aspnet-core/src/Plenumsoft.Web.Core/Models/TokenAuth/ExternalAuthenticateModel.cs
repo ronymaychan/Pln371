@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Abp.Authorization.Users;
 
-namespace Plenumsoft.Models.TokenAuth
+namespace <%= projectName %>.Models.TokenAuth
 {
     public class ExternalAuthenticateModel
     {

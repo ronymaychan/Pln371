@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
 using Shouldly;
 using Xunit;
-using Plenumsoft.Sessions;
+using <%= projectName %>.Sessions;
 
-namespace Plenumsoft.Tests.Sessions
+namespace <%= projectName %>.Tests.Sessions
 {
-    public class SessionAppService_Tests : PlenumsoftTestBase
+    public class SessionAppService_Tests : <%= projectName %>TestBase
     {
         private readonly ISessionAppService _sessionAppService;
 

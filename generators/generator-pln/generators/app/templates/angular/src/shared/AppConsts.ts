@@ -8,7 +8,7 @@
     };
 
     static readonly localization = {
-        defaultLocalizationSourceName: 'Plenumsoft'
+        defaultLocalizationSourceName: '<%= projectName %>'
     };
 
     static readonly authorization = {

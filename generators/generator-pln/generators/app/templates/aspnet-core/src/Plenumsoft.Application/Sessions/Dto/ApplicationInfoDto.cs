@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Plenumsoft.Sessions.Dto
+namespace <%= projectName %>.Sessions.Dto
 {
     public class ApplicationInfoDto
     {

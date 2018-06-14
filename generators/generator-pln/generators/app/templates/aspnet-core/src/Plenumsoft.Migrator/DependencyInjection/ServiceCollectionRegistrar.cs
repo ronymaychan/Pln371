@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Castle.Windsor.MsDependencyInjection;
 using Abp.Dependency;
-using Plenumsoft.Identity;
+using <%= projectName %>.Identity;
 
-namespace Plenumsoft.Migrator.DependencyInjection
+namespace <%= projectName %>.Migrator.DependencyInjection
 {
     public static class ServiceCollectionRegistrar
     {

@@ -4,10 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor.MsDependencyInjection;
 using Abp.Dependency;
-using Plenumsoft.EntityFrameworkCore;
-using Plenumsoft.Identity;
+using <%= projectName %>.EntityFrameworkCore;
+using <%= projectName %>.Identity;
 
-namespace Plenumsoft.Tests.DependencyInjection
+namespace <%= projectName %>.Tests.DependencyInjection
 {
     public static class ServiceCollectionRegistrar
     {
@@ -21,12 +21,12 @@ namespace Plenumsoft.Tests.DependencyInjection
 
             var serviceProvider = WindsorRegistrationHelper.CreateServiceProvider(iocManager.IocContainer, services);
 
-            var builder = new DbContextOptionsBuilder<PlenumsoftDbContext>();
+            var builder = new DbContextOptionsBuilder<<%= projectName %>DbContext>();
             builder.UseInMemoryDatabase(Guid.NewGuid().ToString()).UseInternalServiceProvider(serviceProvider);
 
             iocManager.IocContainer.Register(
                 Component
-                    .For<DbContextOptions<PlenumsoftDbContext>>()
+                    .For<DbContextOptions<<%= projectName %>DbContext>>()
                     .Instance(builder.Options)
                     .LifestyleSingleton()
             );

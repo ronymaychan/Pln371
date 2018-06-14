@@ -1,10 +1,10 @@
 ﻿using Abp.Application.Features;
 using Abp.Domain.Repositories;
 using Abp.MultiTenancy;
-using Plenumsoft.Authorization.Users;
-using Plenumsoft.Editions;
+using <%= projectName %>.Authorization.Users;
+using <%= projectName %>.Editions;
 
-namespace Plenumsoft.MultiTenancy
+namespace <%= projectName %>.MultiTenancy
 {
     public class TenantManager : AbpTenantManager<Tenant, User>
     {

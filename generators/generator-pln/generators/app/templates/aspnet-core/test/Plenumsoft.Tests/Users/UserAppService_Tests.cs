@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Shouldly;
 using Xunit;
 using Abp.Application.Services.Dto;
-using Plenumsoft.Users;
-using Plenumsoft.Users.Dto;
+using <%= projectName %>.Users;
+using <%= projectName %>.Users.Dto;
 
-namespace Plenumsoft.Tests.Users
+namespace <%= projectName %>.Tests.Users
 {
-    public class UserAppService_Tests : PlenumsoftTestBase
+    public class UserAppService_Tests : <%= projectName %>TestBase
     {
         private readonly IUserAppService _userAppService;
 

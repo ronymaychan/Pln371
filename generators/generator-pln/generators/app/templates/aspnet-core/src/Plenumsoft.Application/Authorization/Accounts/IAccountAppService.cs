@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Abp.Application.Services;
-using Plenumsoft.Authorization.Accounts.Dto;
+using <%= projectName %>.Authorization.Accounts.Dto;
 
-namespace Plenumsoft.Authorization.Accounts
+namespace <%= projectName %>.Authorization.Accounts
 {
     public interface IAccountAppService : IApplicationService
     {

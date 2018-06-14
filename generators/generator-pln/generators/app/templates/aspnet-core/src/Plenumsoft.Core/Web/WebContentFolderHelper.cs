@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Abp.Reflection.Extensions;
 
-namespace Plenumsoft.Web
+namespace <%= projectName %>.Web
 {
     /// <summary>
     /// This class is used to find root path of the web project in;
@@ -13,14 +13,14 @@ namespace Plenumsoft.Web
     {
         public static string CalculateContentRootFolder()
         {
-            var coreAssemblyDirectoryPath = Path.GetDirectoryName(typeof(PlenumsoftCoreModule).GetAssembly().Location);
+            var coreAssemblyDirectoryPath = Path.GetDirectoryName(typeof(<%= projectName %>CoreModule).GetAssembly().Location);
             if (coreAssemblyDirectoryPath == null)
             {
-                throw new Exception("Could not find location of Plenumsoft.Core assembly!");
+                throw new Exception("Could not find location of <%= projectName %>.Core assembly!");
             }
 
             var directoryInfo = new DirectoryInfo(coreAssemblyDirectoryPath);
-            while (!DirectoryContains(directoryInfo.FullName, "Plenumsoft.sln"))
+            while (!DirectoryContains(directoryInfo.FullName, "<%= projectName %>.sln"))
             {
                 if (directoryInfo.Parent == null)
                 {
@@ -30,13 +30,13 @@ namespace Plenumsoft.Web
                 directoryInfo = directoryInfo.Parent;
             }
 
-            var webMvcFolder = Path.Combine(directoryInfo.FullName, "src", "Plenumsoft.Web.Mvc");
+            var webMvcFolder = Path.Combine(directoryInfo.FullName, "src", "<%= projectName %>.Web.Mvc");
             if (Directory.Exists(webMvcFolder))
             {
                 return webMvcFolder;
             }
 
-            var webHostFolder = Path.Combine(directoryInfo.FullName, "src", "Plenumsoft.Web.Host");
+            var webHostFolder = Path.Combine(directoryInfo.FullName, "src", "<%= projectName %>.Web.Host");
             if (Directory.Exists(webHostFolder))
             {
                 return webHostFolder;

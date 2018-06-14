@@ -1,9 +1,9 @@
 using Abp.Authorization.Roles;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
-using Plenumsoft.Authorization.Users;
+using <%= projectName %>.Authorization.Users;
 
-namespace Plenumsoft.Authorization.Roles
+namespace <%= projectName %>.Authorization.Roles
 {
     public class RoleStore : AbpRoleStore<Role, User>
     {

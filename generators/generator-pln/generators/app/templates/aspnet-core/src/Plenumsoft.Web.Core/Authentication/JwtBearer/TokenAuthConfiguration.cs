@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Plenumsoft.Authentication.JwtBearer
+namespace <%= projectName %>.Authentication.JwtBearer
 {
     public class TokenAuthConfiguration
     {
