@@ -16,9 +16,10 @@ using System;
 namespace Plenumsoft.Migrations
 {
     [DbContext(typeof(PlenumsoftDbContext))]
-    partial class PlenumsoftDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180612211234_add-locations")]
+    partial class addlocations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

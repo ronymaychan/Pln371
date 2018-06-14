@@ -35,58 +35,6 @@ export class AccountServiceProxy {
     }
 
     /**
-     * @return Success
-     */
-    demo(): Observable<string> {
-        let url_ = this.baseUrl + "/api/services/app/Account/Demo";
-        url_ = url_.replace(/[?&]$/, "");
-
-        let options_ : any = {
-            observe: "response",
-            responseType: "blob",
-            headers: new HttpHeaders({
-                "Content-Type": "application/json", 
-                "Accept": "application/json"
-            })
-        };
-
-        return this.http.request("post", url_, options_).flatMap((response_ : any) => {
-            return this.processDemo(response_);
-        }).catch((response_: any) => {
-            if (response_ instanceof HttpResponseBase) {
-                try {
-                    return this.processDemo(<any>response_);
-                } catch (e) {
-                    return <Observable<string>><any>Observable.throw(e);
-                }
-            } else
-                return <Observable<string>><any>Observable.throw(response_);
-        });
-    }
-
-    protected processDemo(response: HttpResponseBase): Observable<string> {
-        const status = response.status;
-        const responseBlob = 
-            response instanceof HttpResponse ? response.body : 
-            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
-
-        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
-        if (status === 200) {
-            return blobToText(responseBlob).flatMap(_responseText => {
-            let result200: any = null;
-            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = resultData200 !== undefined ? resultData200 : <any>null;
-            return Observable.of(result200);
-            });
-        } else if (status !== 200 && status !== 204) {
-            return blobToText(responseBlob).flatMap(_responseText => {
-            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
-            });
-        }
-        return Observable.of<string>(<any>null);
-    }
-
-    /**
      * @input (optional) 
      * @return Success
      */
@@ -304,6 +252,306 @@ export class AccountServiceProxy {
 }
 
 @Injectable()
+export class CityServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ? baseUrl : "";
+    }
+
+    /**
+     * @id (optional) 
+     * @return Success
+     */
+    get(id: string | null | undefined): Observable<CityDto> {
+        let url_ = this.baseUrl + "/api/services/app/City/Get?";
+        if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).flatMap((response_ : any) => {
+            return this.processGet(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGet(<any>response_);
+                } catch (e) {
+                    return <Observable<CityDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<CityDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processGet(response: HttpResponseBase): Observable<CityDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? CityDto.fromJS(resultData200) : new CityDto();
+            return Observable.of(result200);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<CityDto>(<any>null);
+    }
+
+    /**
+     * @countryName (optional) 
+     * @stateName (optional) 
+     * @cityName (optional) 
+     * @isActive (optional) 
+     * @skipCount (optional) 
+     * @maxResultCount (optional) 
+     * @return Success
+     */
+    getAll(countryName: string | null | undefined, stateName: string | null | undefined, cityName: string | null | undefined, isActive: boolean | null | undefined, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfCityDto> {
+        let url_ = this.baseUrl + "/api/services/app/City/GetAll?";
+        if (countryName !== undefined)
+            url_ += "CountryName=" + encodeURIComponent("" + countryName) + "&"; 
+        if (stateName !== undefined)
+            url_ += "StateName=" + encodeURIComponent("" + stateName) + "&"; 
+        if (cityName !== undefined)
+            url_ += "CityName=" + encodeURIComponent("" + cityName) + "&"; 
+        if (isActive !== undefined)
+            url_ += "IsActive=" + encodeURIComponent("" + isActive) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
+        if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).flatMap((response_ : any) => {
+            return this.processGetAll(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetAll(<any>response_);
+                } catch (e) {
+                    return <Observable<PagedResultDtoOfCityDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<PagedResultDtoOfCityDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processGetAll(response: HttpResponseBase): Observable<PagedResultDtoOfCityDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? PagedResultDtoOfCityDto.fromJS(resultData200) : new PagedResultDtoOfCityDto();
+            return Observable.of(result200);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<PagedResultDtoOfCityDto>(<any>null);
+    }
+
+    /**
+     * @input (optional) 
+     * @return Success
+     */
+    create(input: CityCreateDto | null | undefined): Observable<CityDto> {
+        let url_ = this.baseUrl + "/api/services/app/City/Create";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(input);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).flatMap((response_ : any) => {
+            return this.processCreate(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processCreate(<any>response_);
+                } catch (e) {
+                    return <Observable<CityDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<CityDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processCreate(response: HttpResponseBase): Observable<CityDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? CityDto.fromJS(resultData200) : new CityDto();
+            return Observable.of(result200);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<CityDto>(<any>null);
+    }
+
+    /**
+     * @input (optional) 
+     * @return Success
+     */
+    update(input: CityCreateDto | null | undefined): Observable<CityDto> {
+        let url_ = this.baseUrl + "/api/services/app/City/Update";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(input);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("put", url_, options_).flatMap((response_ : any) => {
+            return this.processUpdate(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processUpdate(<any>response_);
+                } catch (e) {
+                    return <Observable<CityDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<CityDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processUpdate(response: HttpResponseBase): Observable<CityDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? CityDto.fromJS(resultData200) : new CityDto();
+            return Observable.of(result200);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<CityDto>(<any>null);
+    }
+
+    /**
+     * @id (optional) 
+     * @return Success
+     */
+    delete(id: string | null | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/City/Delete?";
+        if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+            })
+        };
+
+        return this.http.request("delete", url_, options_).flatMap((response_ : any) => {
+            return this.processDelete(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processDelete(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<void>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processDelete(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return Observable.of<void>(<any>null);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<void>(<any>null);
+    }
+}
+
+@Injectable()
 export class ConfigurationServiceProxy {
     private http: HttpClient;
     private baseUrl: string;
@@ -359,6 +607,340 @@ export class ConfigurationServiceProxy {
             return Observable.of<void>(<any>null);
             });
         } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<void>(<any>null);
+    }
+}
+
+@Injectable()
+export class CountryServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ? baseUrl : "";
+    }
+
+    /**
+     * @id (optional) 
+     * @return Success
+     */
+    get(id: string | null | undefined): Observable<CountryDto> {
+        let url_ = this.baseUrl + "/api/services/app/Country/Get?";
+        if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).flatMap((response_ : any) => {
+            return this.processGet(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGet(<any>response_);
+                } catch (e) {
+                    return <Observable<CountryDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<CountryDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processGet(response: HttpResponseBase): Observable<CountryDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? CountryDto.fromJS(resultData200) : new CountryDto();
+            return Observable.of(result200);
+            });
+        } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status === 403) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<CountryDto>(<any>null);
+    }
+
+    /**
+     * @countryName (optional) 
+     * @isActive (optional) 
+     * @skipCount (optional) 
+     * @maxResultCount (optional) 
+     * @return Success
+     */
+    getAll(countryName: string | null | undefined, isActive: boolean | null | undefined, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfCountryDto> {
+        let url_ = this.baseUrl + "/api/services/app/Country/GetAll?";
+        if (countryName !== undefined)
+            url_ += "CountryName=" + encodeURIComponent("" + countryName) + "&"; 
+        if (isActive !== undefined)
+            url_ += "IsActive=" + encodeURIComponent("" + isActive) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
+        if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).flatMap((response_ : any) => {
+            return this.processGetAll(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetAll(<any>response_);
+                } catch (e) {
+                    return <Observable<PagedResultDtoOfCountryDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<PagedResultDtoOfCountryDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processGetAll(response: HttpResponseBase): Observable<PagedResultDtoOfCountryDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? PagedResultDtoOfCountryDto.fromJS(resultData200) : new PagedResultDtoOfCountryDto();
+            return Observable.of(result200);
+            });
+        } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status === 403) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<PagedResultDtoOfCountryDto>(<any>null);
+    }
+
+    /**
+     * @input (optional) 
+     * @return Success
+     */
+    create(input: CountryDto | null | undefined): Observable<CountryDto> {
+        let url_ = this.baseUrl + "/api/services/app/Country/Create";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(input);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).flatMap((response_ : any) => {
+            return this.processCreate(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processCreate(<any>response_);
+                } catch (e) {
+                    return <Observable<CountryDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<CountryDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processCreate(response: HttpResponseBase): Observable<CountryDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? CountryDto.fromJS(resultData200) : new CountryDto();
+            return Observable.of(result200);
+            });
+        } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status === 403) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<CountryDto>(<any>null);
+    }
+
+    /**
+     * @input (optional) 
+     * @return Success
+     */
+    update(input: CountryDto | null | undefined): Observable<CountryDto> {
+        let url_ = this.baseUrl + "/api/services/app/Country/Update";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(input);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("put", url_, options_).flatMap((response_ : any) => {
+            return this.processUpdate(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processUpdate(<any>response_);
+                } catch (e) {
+                    return <Observable<CountryDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<CountryDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processUpdate(response: HttpResponseBase): Observable<CountryDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? CountryDto.fromJS(resultData200) : new CountryDto();
+            return Observable.of(result200);
+            });
+        } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status === 403) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<CountryDto>(<any>null);
+    }
+
+    /**
+     * @id (optional) 
+     * @return Success
+     */
+    delete(id: string | null | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/Country/Delete?";
+        if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+            })
+        };
+
+        return this.http.request("delete", url_, options_).flatMap((response_ : any) => {
+            return this.processDelete(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processDelete(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<void>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processDelete(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return Observable.of<void>(<any>null);
+            });
+        } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status === 403) {
             return blobToText(responseBlob).flatMap(_responseText => {
             return throwException("A server error occurred.", status, _responseText, _headers);
             });
@@ -820,6 +1402,346 @@ export class SessionServiceProxy {
             });
         }
         return Observable.of<GetCurrentLoginInformationsOutput>(<any>null);
+    }
+}
+
+@Injectable()
+export class StateServiceProxy {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ? baseUrl : "";
+    }
+
+    /**
+     * @id (optional) 
+     * @return Success
+     */
+    get(id: string | null | undefined): Observable<StateDto> {
+        let url_ = this.baseUrl + "/api/services/app/State/Get?";
+        if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).flatMap((response_ : any) => {
+            return this.processGet(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGet(<any>response_);
+                } catch (e) {
+                    return <Observable<StateDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<StateDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processGet(response: HttpResponseBase): Observable<StateDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? StateDto.fromJS(resultData200) : new StateDto();
+            return Observable.of(result200);
+            });
+        } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status === 403) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<StateDto>(<any>null);
+    }
+
+    /**
+     * @countryName (optional) 
+     * @stateName (optional) 
+     * @isActive (optional) 
+     * @countryId (optional) 
+     * @skipCount (optional) 
+     * @maxResultCount (optional) 
+     * @return Success
+     */
+    getAll(countryName: string | null | undefined, stateName: string | null | undefined, isActive: boolean | null | undefined, countryId: string | null | undefined, skipCount: number | null | undefined, maxResultCount: number | null | undefined): Observable<PagedResultDtoOfStateDto> {
+        let url_ = this.baseUrl + "/api/services/app/State/GetAll?";
+        if (countryName !== undefined)
+            url_ += "CountryName=" + encodeURIComponent("" + countryName) + "&"; 
+        if (stateName !== undefined)
+            url_ += "StateName=" + encodeURIComponent("" + stateName) + "&"; 
+        if (isActive !== undefined)
+            url_ += "IsActive=" + encodeURIComponent("" + isActive) + "&"; 
+        if (countryId !== undefined)
+            url_ += "CountryId=" + encodeURIComponent("" + countryId) + "&"; 
+        if (skipCount !== undefined)
+            url_ += "SkipCount=" + encodeURIComponent("" + skipCount) + "&"; 
+        if (maxResultCount !== undefined)
+            url_ += "MaxResultCount=" + encodeURIComponent("" + maxResultCount) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).flatMap((response_ : any) => {
+            return this.processGetAll(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetAll(<any>response_);
+                } catch (e) {
+                    return <Observable<PagedResultDtoOfStateDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<PagedResultDtoOfStateDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processGetAll(response: HttpResponseBase): Observable<PagedResultDtoOfStateDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? PagedResultDtoOfStateDto.fromJS(resultData200) : new PagedResultDtoOfStateDto();
+            return Observable.of(result200);
+            });
+        } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status === 403) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<PagedResultDtoOfStateDto>(<any>null);
+    }
+
+    /**
+     * @input (optional) 
+     * @return Success
+     */
+    create(input: StateCreateDto | null | undefined): Observable<StateDto> {
+        let url_ = this.baseUrl + "/api/services/app/State/Create";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(input);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("post", url_, options_).flatMap((response_ : any) => {
+            return this.processCreate(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processCreate(<any>response_);
+                } catch (e) {
+                    return <Observable<StateDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<StateDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processCreate(response: HttpResponseBase): Observable<StateDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? StateDto.fromJS(resultData200) : new StateDto();
+            return Observable.of(result200);
+            });
+        } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status === 403) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<StateDto>(<any>null);
+    }
+
+    /**
+     * @input (optional) 
+     * @return Success
+     */
+    update(input: StateCreateDto | null | undefined): Observable<StateDto> {
+        let url_ = this.baseUrl + "/api/services/app/State/Update";
+        url_ = url_.replace(/[?&]$/, "");
+
+        const content_ = JSON.stringify(input);
+
+        let options_ : any = {
+            body: content_,
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("put", url_, options_).flatMap((response_ : any) => {
+            return this.processUpdate(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processUpdate(<any>response_);
+                } catch (e) {
+                    return <Observable<StateDto>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<StateDto>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processUpdate(response: HttpResponseBase): Observable<StateDto> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = resultData200 ? StateDto.fromJS(resultData200) : new StateDto();
+            return Observable.of(result200);
+            });
+        } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status === 403) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<StateDto>(<any>null);
+    }
+
+    /**
+     * @id (optional) 
+     * @return Success
+     */
+    delete(id: string | null | undefined): Observable<void> {
+        let url_ = this.baseUrl + "/api/services/app/State/Delete?";
+        if (id !== undefined)
+            url_ += "Id=" + encodeURIComponent("" + id) + "&"; 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Content-Type": "application/json", 
+            })
+        };
+
+        return this.http.request("delete", url_, options_).flatMap((response_ : any) => {
+            return this.processDelete(response_);
+        }).catch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processDelete(<any>response_);
+                } catch (e) {
+                    return <Observable<void>><any>Observable.throw(e);
+                }
+            } else
+                return <Observable<void>><any>Observable.throw(response_);
+        });
+    }
+
+    protected processDelete(response: HttpResponseBase): Observable<void> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return Observable.of<void>(<any>null);
+            });
+        } else if (status === 401) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status === 403) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("A server error occurred.", status, _responseText, _headers);
+            });
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).flatMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            });
+        }
+        return Observable.of<void>(<any>null);
     }
 }
 
@@ -2129,6 +3051,301 @@ export interface IResetPasswordDto {
     password: string;
 }
 
+export class CityDto implements ICityDto {
+    name: string | undefined;
+    abreviation: string | undefined;
+    isActive: boolean | undefined;
+    stateId: string | undefined;
+    state: StateDto | undefined;
+    id: string | undefined;
+
+    constructor(data?: ICityDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.name = data["name"];
+            this.abreviation = data["abreviation"];
+            this.isActive = data["isActive"];
+            this.stateId = data["stateId"];
+            this.state = data["state"] ? StateDto.fromJS(data["state"]) : <any>undefined;
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): CityDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new CityDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["abreviation"] = this.abreviation;
+        data["isActive"] = this.isActive;
+        data["stateId"] = this.stateId;
+        data["state"] = this.state ? this.state.toJSON() : <any>undefined;
+        data["id"] = this.id;
+        return data; 
+    }
+
+    clone(): CityDto {
+        const json = this.toJSON();
+        let result = new CityDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface ICityDto {
+    name: string | undefined;
+    abreviation: string | undefined;
+    isActive: boolean | undefined;
+    stateId: string | undefined;
+    state: StateDto | undefined;
+    id: string | undefined;
+}
+
+export class StateDto implements IStateDto {
+    name: string | undefined;
+    abreviation: string | undefined;
+    isActive: boolean | undefined;
+    countryId: string | undefined;
+    country: CountryDto | undefined;
+    id: string | undefined;
+
+    constructor(data?: IStateDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.name = data["name"];
+            this.abreviation = data["abreviation"];
+            this.isActive = data["isActive"];
+            this.countryId = data["countryId"];
+            this.country = data["country"] ? CountryDto.fromJS(data["country"]) : <any>undefined;
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): StateDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new StateDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["abreviation"] = this.abreviation;
+        data["isActive"] = this.isActive;
+        data["countryId"] = this.countryId;
+        data["country"] = this.country ? this.country.toJSON() : <any>undefined;
+        data["id"] = this.id;
+        return data; 
+    }
+
+    clone(): StateDto {
+        const json = this.toJSON();
+        let result = new StateDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IStateDto {
+    name: string | undefined;
+    abreviation: string | undefined;
+    isActive: boolean | undefined;
+    countryId: string | undefined;
+    country: CountryDto | undefined;
+    id: string | undefined;
+}
+
+export class CountryDto implements ICountryDto {
+    name: string | undefined;
+    abreviation: string | undefined;
+    isActive: boolean | undefined;
+    id: string | undefined;
+
+    constructor(data?: ICountryDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.name = data["name"];
+            this.abreviation = data["abreviation"];
+            this.isActive = data["isActive"];
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): CountryDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new CountryDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["abreviation"] = this.abreviation;
+        data["isActive"] = this.isActive;
+        data["id"] = this.id;
+        return data; 
+    }
+
+    clone(): CountryDto {
+        const json = this.toJSON();
+        let result = new CountryDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface ICountryDto {
+    name: string | undefined;
+    abreviation: string | undefined;
+    isActive: boolean | undefined;
+    id: string | undefined;
+}
+
+export class PagedResultDtoOfCityDto implements IPagedResultDtoOfCityDto {
+    totalCount: number | undefined;
+    items: CityDto[] | undefined;
+
+    constructor(data?: IPagedResultDtoOfCityDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.totalCount = data["totalCount"];
+            if (data["items"] && data["items"].constructor === Array) {
+                this.items = [];
+                for (let item of data["items"])
+                    this.items.push(CityDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfCityDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfCityDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (this.items && this.items.constructor === Array) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        return data; 
+    }
+
+    clone(): PagedResultDtoOfCityDto {
+        const json = this.toJSON();
+        let result = new PagedResultDtoOfCityDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IPagedResultDtoOfCityDto {
+    totalCount: number | undefined;
+    items: CityDto[] | undefined;
+}
+
+export class CityCreateDto implements ICityCreateDto {
+    name: string | undefined;
+    abreviation: string | undefined;
+    isActive: boolean | undefined;
+    stateId: string | undefined;
+    id: string | undefined;
+
+    constructor(data?: ICityCreateDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.name = data["name"];
+            this.abreviation = data["abreviation"];
+            this.isActive = data["isActive"];
+            this.stateId = data["stateId"];
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): CityCreateDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new CityCreateDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["abreviation"] = this.abreviation;
+        data["isActive"] = this.isActive;
+        data["stateId"] = this.stateId;
+        data["id"] = this.id;
+        return data; 
+    }
+
+    clone(): CityCreateDto {
+        const json = this.toJSON();
+        let result = new CityCreateDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface ICityCreateDto {
+    name: string | undefined;
+    abreviation: string | undefined;
+    isActive: boolean | undefined;
+    stateId: string | undefined;
+    id: string | undefined;
+}
+
 export class ChangeUiThemeInput implements IChangeUiThemeInput {
     theme: string;
 
@@ -2170,6 +3387,61 @@ export class ChangeUiThemeInput implements IChangeUiThemeInput {
 
 export interface IChangeUiThemeInput {
     theme: string;
+}
+
+export class PagedResultDtoOfCountryDto implements IPagedResultDtoOfCountryDto {
+    totalCount: number | undefined;
+    items: CountryDto[] | undefined;
+
+    constructor(data?: IPagedResultDtoOfCountryDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.totalCount = data["totalCount"];
+            if (data["items"] && data["items"].constructor === Array) {
+                this.items = [];
+                for (let item of data["items"])
+                    this.items.push(CountryDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfCountryDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfCountryDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (this.items && this.items.constructor === Array) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        return data; 
+    }
+
+    clone(): PagedResultDtoOfCountryDto {
+        const json = this.toJSON();
+        let result = new PagedResultDtoOfCountryDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IPagedResultDtoOfCountryDto {
+    totalCount: number | undefined;
+    items: CountryDto[] | undefined;
 }
 
 export class CreateRoleDto implements ICreateRoleDto {
@@ -2701,6 +3973,120 @@ export interface ITenantLoginInfoDto {
     tenancyName: string | undefined;
     name: string | undefined;
     id: number | undefined;
+}
+
+export class PagedResultDtoOfStateDto implements IPagedResultDtoOfStateDto {
+    totalCount: number | undefined;
+    items: StateDto[] | undefined;
+
+    constructor(data?: IPagedResultDtoOfStateDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.totalCount = data["totalCount"];
+            if (data["items"] && data["items"].constructor === Array) {
+                this.items = [];
+                for (let item of data["items"])
+                    this.items.push(StateDto.fromJS(item));
+            }
+        }
+    }
+
+    static fromJS(data: any): PagedResultDtoOfStateDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new PagedResultDtoOfStateDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["totalCount"] = this.totalCount;
+        if (this.items && this.items.constructor === Array) {
+            data["items"] = [];
+            for (let item of this.items)
+                data["items"].push(item.toJSON());
+        }
+        return data; 
+    }
+
+    clone(): PagedResultDtoOfStateDto {
+        const json = this.toJSON();
+        let result = new PagedResultDtoOfStateDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IPagedResultDtoOfStateDto {
+    totalCount: number | undefined;
+    items: StateDto[] | undefined;
+}
+
+export class StateCreateDto implements IStateCreateDto {
+    name: string | undefined;
+    abreviation: string | undefined;
+    isActive: boolean | undefined;
+    countryId: string | undefined;
+    id: string | undefined;
+
+    constructor(data?: IStateCreateDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.name = data["name"];
+            this.abreviation = data["abreviation"];
+            this.isActive = data["isActive"];
+            this.countryId = data["countryId"];
+            this.id = data["id"];
+        }
+    }
+
+    static fromJS(data: any): StateCreateDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new StateCreateDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["name"] = this.name;
+        data["abreviation"] = this.abreviation;
+        data["isActive"] = this.isActive;
+        data["countryId"] = this.countryId;
+        data["id"] = this.id;
+        return data; 
+    }
+
+    clone(): StateCreateDto {
+        const json = this.toJSON();
+        let result = new StateCreateDto();
+        result.init(json);
+        return result;
+    }
+}
+
+export interface IStateCreateDto {
+    name: string | undefined;
+    abreviation: string | undefined;
+    isActive: boolean | undefined;
+    countryId: string | undefined;
+    id: string | undefined;
 }
 
 export class CreateTenantDto implements ICreateTenantDto {

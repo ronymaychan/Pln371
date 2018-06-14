@@ -1,0 +1,109 @@
+<div class="row clearfix" [@routerTransition]>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card main-content">
+            <div class="header">
+                <h2>
+                    {{l('ListCountries')}}
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <i class="fa fa-spin fa-spinner" *ngIf="isTableLoading"></i>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li>
+                                <a href="javascript:void(0);" class=" waves-effect <waves-block></waves-block>" (click)="refresh();">
+                                    <i class="material-icons">refresh</i> Refresh</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive">
+              <div #inputContent class="row">
+                  <div class="col-sm-4">
+                      <div class="form-group form-float">
+                          <div class="form-line">
+                              <input [(ngModel)]="filter" (keyup.enter)="search()" id="filtername" type="text" name="filtername" class="form-control">
+                              <label for="filtername" class="form-label">{{l("CountryName")}}</label>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                <!--
+                <div class="col-sm-4">
+                    <div class="form-group form-float">
+                        <div class="form-line">
+                            <select [(ngModel)]="isActive" name="isActiveFilter" id="isActiveFilter" class="form-control">
+                                <option value="" selected></option>
+                                <option value="true">{{l("Yes")}}</option>
+                                <option value="false">{{l("No")}}</option>
+                            </select>
+                            <label for="isActiveFilter" class="form-label">{{l("IsActive")}}</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <button (click)="search()" type="button" class="btn btn-default waves-effect">
+                        {{l("Filter")}}
+                    </button>
+                </div>
+                -->
+                <table *ngIf="items.length > 0" class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>{{l('CountryName')}}</th>
+                            <th>{{l('CountryAbreviation')}}</th>
+                            <th>{{l('IsActive')}}</th>
+                            <th>{{l('Actions')}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items | paginate: { id: 'server', itemsPerPage: pageSize, currentPage: pageNumber, totalItems: totalItems }">
+                            <td>{{item.name}}</td>
+                            <td>{{item.abreviation}}</td>
+                            <td align="center">
+                                <i class="material-icons" *ngIf="item.isActive" style="color:green;">check_box</i>
+                                <i class="material-icons" *ngIf="!item.isActive" style="color:red;">indeterminate_check_box</i>
+                            </td>
+                            <td class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">menu</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li>
+                                        <a href="javascript:void(0);" class="waves-effect waves-block" (click)="edit(item)">
+                                            <i class="material-icons">create</i>{{l("Edit")}}</a>
+                                    </li>
+                                    <!--<li><a href="javascript:void(0);" class="waves-effect waves-block" (click)="delete(item)"><i class="material-icons">delete_sweep</i>Delete</a></li>-->
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div *ngIf="items.length == 0" style="text-align: center;">
+                    <h4>{{l("FoundNoResult")}}</h4>
+                </div>
+
+                <div class="text-align: center;" *ngIf="totalItems > pageSize">
+                    <pagination-controls
+                        (pageChange)="getDataPage($event)"
+                        id="server"
+                        [previousLabel]="l('PreviousLabel')"
+                        [nextLabel]="l('NextLabel')"></pagination-controls>
+                </div>
+
+                <button type="button" data-toggle="modal" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right"
+                        (click)="create()">
+                        <i class="material-icons">add</i>
+                </button>
+            </div>
+          </div>
+      </div>
+  </div>
+
+    <create-country-modal #createModal (modalSave)="refresh()"></create-country-modal>
+    <edit-country-modal #editModal (modalSave)="refresh()"></edit-country-modal>
