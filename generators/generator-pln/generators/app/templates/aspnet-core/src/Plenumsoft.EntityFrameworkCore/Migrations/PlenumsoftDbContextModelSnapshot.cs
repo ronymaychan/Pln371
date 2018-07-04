@@ -3,7 +3,6 @@ using Abp.Authorization;
 using Abp.BackgroundJobs;
 using Abp.Events.Bus.Entities;
 using Abp.Notifications;
-using <%= projectName %>.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -11,6 +10,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
+using <%= projectName %>.EntityFrameworkCore;
 using System;
 
 namespace <%= projectName %>.Migrations
@@ -990,6 +990,74 @@ namespace <%= projectName %>.Migrations
                     b.ToTable("AbpUsers");
                 });
 
+            modelBuilder.Entity("<%= projectName %>.Domain.City", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Abreviation")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("StateId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StateId");
+
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("<%= projectName %>.Domain.Country", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Abreviation")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries");
+                });
+
+            modelBuilder.Entity("<%= projectName %>.Domain.State", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Abreviation")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("CountryId");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.ToTable("States");
+                });
+
             modelBuilder.Entity("<%= projectName %>.MultiTenancy.Tenant", b =>
                 {
                     b.Property<int>("Id")
@@ -1188,6 +1256,20 @@ namespace <%= projectName %>.Migrations
                     b.HasOne("<%= projectName %>.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
+                });
+
+            modelBuilder.Entity("<%= projectName %>.Domain.City", b =>
+                {
+                    b.HasOne("<%= projectName %>.Domain.State", "State")
+                        .WithMany()
+                        .HasForeignKey("StateId");
+                });
+
+            modelBuilder.Entity("<%= projectName %>.Domain.State", b =>
+                {
+                    b.HasOne("<%= projectName %>.Domain.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId");
                 });
 
             modelBuilder.Entity("<%= projectName %>.MultiTenancy.Tenant", b =>

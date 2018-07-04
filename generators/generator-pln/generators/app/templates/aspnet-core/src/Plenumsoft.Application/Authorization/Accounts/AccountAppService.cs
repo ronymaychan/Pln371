@@ -31,13 +31,13 @@ namespace <%= projectName %>.Authorization.Accounts
             LocalizationSourceName = <%= projectName %>Consts.LocalizationSourceName;
         }
 
-        [AbpAllowAnonymous]
+        /*[AbpAllowAnonymous]
         public string Demo()
         {
             var inforDir = WebContentDirectoryFinder.CalculateContentRootFolder();
             
             return L("HomePage");
-        }
+        }*/
 
         public async Task<IsTenantAvailableOutput> IsTenantAvailable(IsTenantAvailableInput input)
         {

@@ -15,6 +15,10 @@ import { AbpModule } from '@abp/abp.module';
 import { ServiceProxyModule } from '@shared/service-proxies/service-proxy.module';
 import { SharedModule } from '@shared/shared.module';
 
+import { DataTableModule  } from 'primeng/primeng';
+import { TableModule } from 'primeng/table';
+import {InputTextModule} from 'primeng/inputtext';
+
 import { HomeComponent } from '@app/home/home.component';
 import { AboutComponent } from '@app/about/about.component';
 import { UsersComponent } from '@app/users/users.component';
@@ -34,6 +38,15 @@ import { SideBarFooterComponent } from '@app/layout/sidebar-footer.component';
 import { RightSideBarComponent } from '@app/layout/right-sidebar.component';
 import { MaterialInput } from '@shared/directives/material-input.directive';
 import { ChangePasswordComponent } from './account/change-password/change-password.component';
+import { CountriesComponent } from './countries/countries.component';
+import { CreateCountryComponent }  from './countries/create-country/create-country.component';
+import { EditCountryComponent } from './countries/edit-country/edit-country.component';
+import { EstatesComponent } from './states/estates.component';
+import { CreateEstateComponent } from './states/create-estate/create-estate.component';
+import { EditEstateComponent } from './states/edit-estate/edit-estate.component';
+import { CitiesComponent } from './cities/cities.component';
+import { CreateCityComponent } from './cities/create-city/create-city.component';
+import { EditCityComponent } from './cities/edit-city/edit-city.component';
 
 @NgModule({
     declarations: [
@@ -41,21 +54,24 @@ import { ChangePasswordComponent } from './account/change-password/change-passwo
         HomeComponent,
         AboutComponent,
         TenantsComponent,
-		CreateTenantComponent,
-		EditTenantComponent,
+        CreateTenantComponent,
+        EditTenantComponent,
         UsersComponent,
-		CreateUserComponent,
-		EditUserComponent,
-      	RolesComponent,        
-		CreateRoleComponent,
-		EditRoleComponent,
+        CreateUserComponent,
+        EditUserComponent,
+        RolesComponent,
+        CreateRoleComponent,
+        EditRoleComponent,
         TopBarComponent,
         TopBarLanguageSwitchComponent,
         SideBarUserAreaComponent,
         SideBarNavComponent,
         SideBarFooterComponent,
         RightSideBarComponent,
-        ChangePasswordComponent
+        ChangePasswordComponent,
+        CountriesComponent, CreateCountryComponent, EditCountryComponent,
+        EstatesComponent, CreateEstateComponent, EditEstateComponent,
+        CitiesComponent, CreateCityComponent, EditCityComponent 
     ],
     imports: [
         CommonModule,
@@ -67,7 +83,10 @@ import { ChangePasswordComponent } from './account/change-password/change-passwo
         AppRoutingModule,
         ServiceProxyModule,
         SharedModule,
-        NgxPaginationModule
+        NgxPaginationModule,
+        DataTableModule,
+        TableModule,
+        InputTextModule
     ],
     providers: [
 

@@ -1,0 +1,79 @@
+<div bsModal #createModal="bs-modal" class="modal fade" (onShown)="onShown()" tabindex="-1" role="dialog" aria-labelledby="createModal" aria-hidden="true" [config]="{backdrop: 'static'}">
+    <div class="modal-dialog">
+
+        <div #modalContent class="modal-content">
+
+            <form *ngIf="active" #createForm="ngForm" id="frm_create" novalidate (ngSubmit)="save()">
+
+                <div class="modal-header">
+                    <button type="button" class="close" (click)="close()" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">
+                        <span>{{l("CreateNewCountry")}}</span>
+                    </h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input id="countryid" type="text" name="countryid" [(ngModel)]="item.id" required maxlength="15" minlength="2" class="validate form-control">
+                                    <label for="countryid" class="form-label">{{l("CountryId")}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input id="countryname" type="text" name="countryname" [(ngModel)]="item.name" required maxlength="100" minlength="2" class="validate form-control">
+                                    <label for="countryname" class="form-label">{{l("CountryName")}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input id="countryAbreviation" type="text" name="countryAbreviation" [(ngModel)]="item.abreviation" required maxlength="100" minlength="2" class="validate form-control">
+                                    <label for="countryAbreviation" class="form-label">{{l("CountryAbreviation")}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row clearfix">
+                            <div class="col-sm-12">
+                                <div class="form-group form-float">
+                                    <div class="">
+                                        <input id="isActive" type="checkbox" name="isActive" [(ngModel)]="item.isActive" class="form-control" />
+                                        <label for="isActive" class="form-label">{{l("IsActive")}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+
+                
+
+                <div class="modal-footer">
+                    <button [disabled]="saving" type="button" class="btn btn-default waves-effect" (click)="close()">
+                        {{l("Cancel")}}
+                    </button>
+                    <button [disabled]="!createForm.form.valid || saving" type="submit" class="btn btn-primary waves-effect">
+                        {{l("Save")}}
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

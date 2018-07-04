@@ -1,0 +1,107 @@
+<div bsModal #createModal="bs-modal" class="modal fade" (onShown)="onShown()" tabindex="-1" role="dialog" aria-labelledby="createModal" aria-hidden="true" [config]="{backdrop: 'static'}">
+  <div class="modal-dialog">
+
+      <div #modalContent class="modal-content">
+
+          <form *ngIf="active" #createForm="ngForm" id="frm_create" novalidate (ngSubmit)="save()">
+
+              <div class="modal-header">
+                  <button type="button" class="close" (click)="close()" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title">
+                      <span>{{l("CreateNewCity")}}</span>
+                  </h4>
+              </div>
+
+              <div class="modal-body">
+
+                  <div class="row clearfix">
+                      <div class="col-sm-12">
+                          <div class="form-group form-float">
+                              <div class="form-line">
+                                  <select [(ngModel)]="countryId" (change)="populateStates()" name="countryid" id="countryid" class="form-control" required>
+                                      <option value=""></option>
+                                      <option *ngFor="let country of countries" [ngValue]="country.id">{{country.name}}</option>
+                                  </select>
+                                  <label for="countryid" class="form-label">{{l("Countries")}}</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <select [(ngModel)]="item.stateId" name="estateId" id="estateId" class="form-control" required>
+                                    <option value=""></option>
+                                    <option *ngFor="let estate of estates" [ngValue]="estate.id">{{estate.name}}</option>
+                                </select>
+                                <label for="estateId" class="form-label">{{l("States")}}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                  <div class="row clearfix">
+                      <div class="col-sm-12">
+                          <div class="form-group form-float">
+                              <div class="form-line">
+                                  <input id="cityid" type="text" name="cityid" [(ngModel)]="item.id" required maxlength="15" minlength="2" class="validate form-control">
+                                  <label for="cityid" class="form-label">{{l("CityId")}}</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row clearfix">
+                      <div class="col-sm-12">
+                          <div class="form-group form-float">
+                              <div class="form-line">
+                                  <input id="cityname" type="text" name="cityname" [(ngModel)]="item.name" required maxlength="100" minlength="2" class="validate form-control">
+                                  <label for="cityname" class="form-label">{{l("CityName")}}</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row clearfix">
+                      <div class="col-sm-12">
+                          <div class="form-group form-float">
+                              <div class="form-line">
+                                  <input id="cityAbreviation" type="text" name="cityAbreviation" [(ngModel)]="item.abreviation" required maxlength="100" minlength="2" class="validate form-control">
+                                  <label for="cityAbreviation" class="form-label">{{l("CityAbreviation")}}</label>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row clearfix">
+                          <div class="col-sm-12">
+                              <div class="form-group form-float">
+                                  <div class="">
+                                      <input id="isActive" type="checkbox" name="isActive" [(ngModel)]="item.isActive" class="form-control" />
+                                      <label for="isActive" class="form-label">{{l("IsActive")}}</label>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  
+              </div>
+
+              
+
+              <div class="modal-footer">
+                  <button [disabled]="saving" type="button" class="btn btn-default waves-effect" (click)="close()">
+                      {{l("Cancel")}}
+                  </button>
+                  <button [disabled]="!createForm.form.valid || saving" type="submit" class="btn btn-primary waves-effect">
+                      {{l("Save")}}
+                  </button>
+              </div>
+
+          </form>
+      </div>
+  </div>
+</div>

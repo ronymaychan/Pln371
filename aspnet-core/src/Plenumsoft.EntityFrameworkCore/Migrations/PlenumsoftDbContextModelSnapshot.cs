@@ -3,7 +3,6 @@ using Abp.Authorization;
 using Abp.BackgroundJobs;
 using Abp.Events.Bus.Entities;
 using Abp.Notifications;
-using Plenumsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
@@ -11,6 +10,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
+using Plenumsoft.EntityFrameworkCore;
 using System;
 
 namespace Plenumsoft.Migrations
@@ -990,6 +990,74 @@ namespace Plenumsoft.Migrations
                     b.ToTable("AbpUsers");
                 });
 
+            modelBuilder.Entity("Plenumsoft.Domain.City", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Abreviation")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("StateId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StateId");
+
+                    b.ToTable("Cities");
+                });
+
+            modelBuilder.Entity("Plenumsoft.Domain.Country", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Abreviation")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Countries");
+                });
+
+            modelBuilder.Entity("Plenumsoft.Domain.State", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Abreviation")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("CountryId");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
+
+                    b.ToTable("States");
+                });
+
             modelBuilder.Entity("Plenumsoft.MultiTenancy.Tenant", b =>
                 {
                     b.Property<int>("Id")
@@ -1188,6 +1256,20 @@ namespace Plenumsoft.Migrations
                     b.HasOne("Plenumsoft.Authorization.Users.User", "LastModifierUser")
                         .WithMany()
                         .HasForeignKey("LastModifierUserId");
+                });
+
+            modelBuilder.Entity("Plenumsoft.Domain.City", b =>
+                {
+                    b.HasOne("Plenumsoft.Domain.State", "State")
+                        .WithMany()
+                        .HasForeignKey("StateId");
+                });
+
+            modelBuilder.Entity("Plenumsoft.Domain.State", b =>
+                {
+                    b.HasOne("Plenumsoft.Domain.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId");
                 });
 
             modelBuilder.Entity("Plenumsoft.MultiTenancy.Tenant", b =>

@@ -103,6 +103,18 @@ module.exports = class extends Generator{
         files.push({source: 'angular/src/app/about/about.component.ts'});
         files.push({source: 'angular/src/app/account/change-password/change-password.component.html'});
         files.push({source: 'angular/src/app/account/change-password/change-password.component.ts'});
+        files.push({source: 'angular/src/app/cities/cities.component.html'});
+        files.push({source: 'angular/src/app/cities/cities.component.ts'});
+        files.push({source: 'angular/src/app/cities/create-city/create-city.component.html'});
+        files.push({source: 'angular/src/app/cities/create-city/create-city.component.ts'});
+        files.push({source: 'angular/src/app/cities/edit-city/edit-city.component.html'});
+        files.push({source: 'angular/src/app/cities/edit-city/edit-city.component.ts'});
+        files.push({source: 'angular/src/app/countries/countries.component.html'});
+        files.push({source: 'angular/src/app/countries/countries.component.ts'});
+        files.push({source: 'angular/src/app/countries/create-country/create-country.component.html'});
+        files.push({source: 'angular/src/app/countries/create-country/create-country.component.ts'});
+        files.push({source: 'angular/src/app/countries/edit-country/edit-country.component.html'});
+        files.push({source: 'angular/src/app/countries/edit-country/edit-country.component.ts'});
         files.push({source: 'angular/src/app/home/home.component.html'});
         files.push({source: 'angular/src/app/home/home.component.ts'});
         files.push({source: 'angular/src/app/layout/right-sidebar.component.html'});
@@ -123,6 +135,12 @@ module.exports = class extends Generator{
         files.push({source: 'angular/src/app/roles/create-role/create-role.component.ts'});
         files.push({source: 'angular/src/app/roles/edit-role/edit-role.component.html'});
         files.push({source: 'angular/src/app/roles/edit-role/edit-role.component.ts'});
+        files.push({source: 'angular/src/app/states/estates.component.html'});
+        files.push({source: 'angular/src/app/states/estates.component.ts'});
+        files.push({source: 'angular/src/app/states/create-estate/create-estate.component.html'});
+        files.push({source: 'angular/src/app/states/create-estate/create-estate.component.ts'});
+        files.push({source: 'angular/src/app/states/edit-estate/edit-estate.component.html'});
+        files.push({source: 'angular/src/app/states/edit-estate/edit-estate.component.ts'});
         files.push({source: 'angular/src/app/tenants/tenants.component.html'});
         files.push({source: 'angular/src/app/tenants/tenants.component.ts'});
         files.push({source: 'angular/src/app/tenants/create-tenant/create-tenant.component.html'});
@@ -245,11 +263,20 @@ module.exports = class extends Generator{
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/Dto/RegisterOutput.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/Dto/ResetPasswordDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Authorization/Accounts/Dto/TenantAvailabilityState.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Cities/CityAppService.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Cities/ICityAppService.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Cities/Dto/CityCreateDto.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Cities/Dto/CityDto.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Cities/Dto/CityInputDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Configuration/ConfigurationAppService.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Configuration/IConfigurationAppService.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Configuration/Dto/ChangeUiThemeInput.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Configuration/Ui/UiThemeInfo.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Configuration/Ui/UiThemes.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Countries/CountryAppService.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Countries/ICountryAppService.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Countries/Dto/CountryDto.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/Countries/Dto/CountryInputDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/MultiTenancy/ITenantAppService.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/MultiTenancy/TenantAppService.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/MultiTenancy/Dto/CreateTenantDto.cs'});
@@ -269,6 +296,11 @@ module.exports = class extends Generator{
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Sessions/Dto/TenantLoginInfoDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Sessions/Dto/UserLoginInfoDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/SignalR/SignalRFeature.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/States/IStatesAppService.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/States/StateAppService.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/States/Dto/StateCreateDto.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/States/Dto/StateDto.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Application/States/Dto/StateInputDto.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Users/IUserAppService.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Users/UserAppService.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Application/Users/Dto/ChangePasswordDto.cs'});
@@ -297,6 +329,9 @@ module.exports = class extends Generator{
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Configuration/AppConfigurations.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Configuration/AppSettingNames.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Configuration/AppSettingProvider.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Core/Domain/City.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Core/Domain/Country.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.Core/Domain/State.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Editions/EditionManager.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Features/FeatureValueStore.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Core/Helpers/FluentTemplate.cs'});
@@ -326,8 +361,12 @@ module.exports = class extends Generator{
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/PlenumsoftDbContextConfigurer.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/PlenumsoftDbContextFactory.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/PlenumsoftEntityFrameworkModule.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/Mapping/CityEntityConfiguration.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/Mapping/CountryEntityConfiguration.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/Mapping/StateEntityConfiguration.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/Repositories/PlenumsoftRepositoryBase.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/Seed/SeedHelper.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/Seed/Host/DefaultDataInitialization.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/Seed/Host/DefaultEditionCreator.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/Seed/Host/DefaultLanguagesCreator.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/EntityFrameworkCore/Seed/Host/DefaultSettingsCreator.cs'});
@@ -351,6 +390,8 @@ module.exports = class extends Generator{
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/Migrations/20180320131229_Upgraded_To_Abp_v3_5_0.Designer.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/Migrations/20180509121141_Upgraded_To_Abp_v3_6_1.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/Migrations/20180509121141_Upgraded_To_Abp_v3_6_1.Designer.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/Migrations/20180612211234_add-locations.cs'});
+        files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/Migrations/20180612211234_add-locations.Designer.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.EntityFrameworkCore/Migrations/PlenumsoftDbContextModelSnapshot.cs'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Migrator/appsettings.json'});
         files.push({source: 'aspnet-core/src/Plenumsoft.Migrator/Log.cs'});
@@ -424,6 +465,7 @@ module.exports = class extends Generator{
         files.push({source: '_screenshots/ui-home.png'});
         files.push({source: '_screenshots/ui-login.png'});
         files.push({source: '_screenshots/ui-user-create-modal.png'});
+
 
 
 

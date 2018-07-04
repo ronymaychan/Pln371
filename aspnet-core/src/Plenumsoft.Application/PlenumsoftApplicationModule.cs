@@ -23,8 +23,14 @@ namespace Plenumsoft
 
             Configuration.Modules.AbpAutoMapper().Configurators.Add(
                 // Scan the assembly for classes which inherit from AutoMapper.Profile
-                cfg => cfg.AddProfiles(thisAssembly)
+                cfg =>
+                {
+                    cfg.AddProfiles(thisAssembly);
+                    cfg.CreateMap<States.Dto.StateCreateDto, Domain.State>().ForMember(x => x.Country, opt => opt.Ignore());
+                    cfg.CreateMap<Cities.Dto.CityCreateDto, Domain.City>().ForMember(x => x.State, opt => opt.Ignore());
+                }
             );
+
         }
     }
 }
